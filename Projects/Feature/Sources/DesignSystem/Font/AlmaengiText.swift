@@ -17,7 +17,7 @@ public struct AlmaengiText: View {
         _ text: String,
         textStyle: TextStyle,
         color: Color = .black,
-        isFixedSize: Bool = false
+        isFixedSize: Bool = true
     ) {
         self.text = text
         self.textStyle = textStyle
