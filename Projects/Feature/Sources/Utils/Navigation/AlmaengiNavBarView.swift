@@ -31,12 +31,12 @@ extension AlmaengiNavBarView {
         Button {
             presentationMode.wrappedValue.dismiss()
         } label: {
-            Image(.left)
+            Image(asset: FeatureAsset.Images.leftArrow)
         }
     }
     
     private var titleSection: some View {
-        AlmaengiText(title, textStyle: .h3Bold, color: .grayscale9)
+        AlmaengiText(title, textStyle: .h3Bold, color: .g9)
     }
 }
 

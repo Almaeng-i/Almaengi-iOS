@@ -18,7 +18,7 @@ struct AlmaengiButton: View {
         ZStack {
             Rectangle()
                 .cornerRadius(8)
-                .foregroundColor(.primary2)
+                .foregroundColor(.p2)
                 .frame(maxWidth: .infinity)
                 .frame(maxHeight: 54)
             AlmaengiText(title, textStyle: .h3Bold, color: .white)

@@ -20,11 +20,11 @@ struct AlmaengiTextField: View {
 
     private var borderForegroundColor: Color {
         if isFocused {
-            return .primary4
+            return .p4
         } else if isError {
             return .systemRed
         } else {
-            return .grayscale4
+            return .g4
         }
     }
     
@@ -45,11 +45,11 @@ struct AlmaengiTextField: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            AlmaengiText(title, textStyle: .descriptionBold, color: .grayscale9, isFixedSize: true)
+            AlmaengiText(title, textStyle: .descriptionBold, color: .g9, isFixedSize: true)
                 .padding(.bottom, 4)
             TextField(placeholder, text: $text)
                 .focused($isFocused)
-                .foregroundColor(.grayscale9)
+                .foregroundColor(.g9)
                 .disabled(!isEnabled)
             AlmaengiText(helpMessage, textStyle: .descriptionMedium, color: isError ? .systemRed : .clear, isFixedSize: true)
         }

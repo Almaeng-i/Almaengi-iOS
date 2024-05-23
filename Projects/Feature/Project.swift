@@ -9,6 +9,7 @@ let project = Project(
             product: .staticFramework,
             bundleId: "io.tuist.Feature",
             sources: ["Sources/**"],
+            resources: ["Resources/**"],
             dependencies: []
         )
     ]

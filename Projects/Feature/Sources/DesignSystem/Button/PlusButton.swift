@@ -11,10 +11,10 @@ struct PlusButton: View {
     var body: some View {
         ZStack {
             Circle()
-                .foregroundColor(.primary3)
+                .foregroundColor(.p3)
                 .frame(maxWidth: 60)
                 .frame(maxHeight: 60)
-            Image(.plus)
+            Image(asset: FeatureAsset.Images.plus)
         }
     }
 }

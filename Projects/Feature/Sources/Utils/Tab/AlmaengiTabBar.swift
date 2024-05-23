@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct GHJMTabView: View {
+struct AlmaengiTabBar: View {
     @State var selectedIndex = 0
     let selectedImageNames = ["homeSelected", "bucketlistSelected", "mypageSelected", "shopSelected"]
     let unSelectedImageNames = ["home", "bucketlist", "mypage", "shop"]
@@ -17,19 +17,19 @@ struct GHJMTabView: View {
             ZStack {
                 switch selectedIndex {
                 case 0:
-                    Image(.home)
+                    Image(asset: FeatureAsset.Images.home)
                 case 1:
-                    Image(.home)
+                    Image(asset: FeatureAsset.Images.home)
                 case 2:
-                    Image(.home)
+                    Image(asset: FeatureAsset.Images.home)
                 case 3:
-                    Image(.home)
+                    Image(asset: FeatureAsset.Images.home)
                 default:
-                    Image(.home)
+                    Image(asset: FeatureAsset.Images.home)
                 }
             }
             HStack(spacing: 0) {
-                ForEach(0..<selectedImageNames.count) { index in
+                ForEach(selectedImageNames.indices, id: \.self) { index in
                     Image(
                         selectedIndex == index ? selectedImageNames[index] : unSelectedImageNames[index]
                     )

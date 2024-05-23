@@ -13,9 +13,9 @@ struct CameraButton: View {
     var body: some View {
         ZStack {
             Circle()
-                .foregroundColor(.primary2)
+                .foregroundColor(.p2)
                 .frame(width: size, height: size)
-            Image(.camera   )
+            Image(asset: FeatureAsset.Images.camera)
                 .resizable()
                 .resizeImage(imgName: "camera", imageWidth: (size / 2) + 2)
         }
