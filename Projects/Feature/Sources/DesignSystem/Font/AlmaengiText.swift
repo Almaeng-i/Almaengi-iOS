@@ -26,11 +26,13 @@ public struct AlmaengiText: View {
     }
     
     public var body: some View {
-        Text(LocalizedStringKey(text))
-            .textStyle(
-                textStyle,
-                isFixedSize: isFixedSize
-            )
-            .foregroundColor(color)
-    }
+           let fontDescription = textStyle.fontDescription
+           
+           return Text(text)
+               .font(fontDescription.font)
+               .foregroundColor(color)
+               .lineSpacing(fontDescription.lineHeight - fontDescription.size)
+               .padding(.vertical, (fontDescription.lineHeight - fontDescription.size) / 2)
+               .fixedSize(horizontal: false, vertical: isFixedSize)
+       }
 }

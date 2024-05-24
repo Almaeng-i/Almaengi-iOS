@@ -8,6 +8,7 @@ let project = Project(
             destinations: .iOS,
             product: .app,
             bundleId: "io.tuist.AlmaengiIOS",
+            deploymentTargets: .iOS("17.0"),
             infoPlist: .extendingDefault(
                 with: [
                     "UILaunchStoryboardName": "LaunchScreen.storyboard",
@@ -30,6 +31,6 @@ let project = Project(
             sources: ["Tests/**"],
             resources: [],
             dependencies: [.target(name: "AlmaengiIOS")]
-        ),
+        )
     ]
 )

@@ -25,81 +25,36 @@ public enum TextStyle {
 }
 
 internal extension TextStyle {
-    private var fontDescription: FontDescription {
+    var fontDescription: FontDescription {
         switch self {
         case .h1Bold:
-            return FontDescription(font: .bold, size: 26, lineHeight: 36, style: .headline)
+            return FontDescription(font: Font(FeatureFontFamily.Pretendard.bold.font(size: 26)), size: 26, lineHeight: 36)
         case .h1Medium:
-            return FontDescription(font: .medium, size: 26, lineHeight: 36, style: .headline)
+            return FontDescription(font: Font(FeatureFontFamily.Pretendard.medium.font(size: 26)), size: 26, lineHeight: 36)
         case .h2Bold:
-            return FontDescription(font: .bold, size: 20, lineHeight: 32, style: .headline)
+            return FontDescription(font: Font(FeatureFontFamily.Pretendard.bold.font(size: 20)), size: 20, lineHeight: 32)
         case .h2Medium:
-            return FontDescription(font: .medium, size: 20, lineHeight: 32, style: .headline)
+            return FontDescription(font: Font(FeatureFontFamily.Pretendard.medium.font(size: 20)), size: 20, lineHeight: 32)
         case .h3Bold:
-            return FontDescription(font: .bold, size: 18, lineHeight: 24, style: .headline)
+            return FontDescription(font: Font(FeatureFontFamily.Pretendard.bold.font(size: 18)), size: 18, lineHeight: 24)
         case .h3Medium:
-            return FontDescription(font: .medium, size: 18, lineHeight: 24, style: .headline)
+            return FontDescription(font: Font(FeatureFontFamily.Pretendard.medium.font(size: 18)), size: 18, lineHeight: 24)
         case .bodyBold:
-            return FontDescription(font: .bold, size: 16, lineHeight: 24, style: .body)
+            return FontDescription(font: Font(FeatureFontFamily.Pretendard.bold.font(size: 16)), size: 16, lineHeight: 24)
         case .bodyMedium:
-            return FontDescription(font: .medium, size: 16, lineHeight: 24, style: .body)
+            return FontDescription(font: Font(FeatureFontFamily.Pretendard.medium.font(size: 16)), size: 16, lineHeight: 24)
         case .titleBold:
-            return FontDescription(font: .bold, size: 24, lineHeight: 36, style: .title1)
+            return FontDescription(font: Font(FeatureFontFamily.Pretendard.bold.font(size: 24)), size: 24, lineHeight: 36)
         case .titleMedium:
-            return FontDescription(font: .medium, size: 24, lineHeight: 36, style: .title1)
+            return FontDescription(font: Font(FeatureFontFamily.Pretendard.medium.font(size: 24)), size: 24, lineHeight: 36)
         case .descriptionBold:
-            return FontDescription(font: .bold, size: 14, lineHeight: 22, style: .subheadline)
+            return FontDescription(font: Font(FeatureFontFamily.Pretendard.bold.font(size: 14)), size: 14, lineHeight: 22)
         case .descriptionMedium:
-            return FontDescription(font: .medium, size: 14, lineHeight: 22, style: .subheadline)
+            return FontDescription(font: Font(FeatureFontFamily.Pretendard.medium.font(size: 14)), size: 14, lineHeight: 22)
         case .captionBold:
-            return FontDescription(font: .bold, size: 12, lineHeight: 20, style: .caption1)
+            return FontDescription(font: Font(FeatureFontFamily.Pretendard.bold.font(size: 12)), size: 12, lineHeight: 20)
         case .captionMedium:
-            return FontDescription(font: .medium, size: 12, lineHeight: 20, style: .caption1)
+            return FontDescription(font: Font(FeatureFontFamily.Pretendard.medium.font(size: 12)), size: 12, lineHeight: 20)
         }
-    }
-}
-
-internal extension TextStyle {
-    var font: UIFont {
-        guard let font = UIFont(name: fontDescription.font.name, size: fontDescription.size) else {
-            return UIFont.preferredFont(forTextStyle: fontDescription.style)
-        }
-    
-        return UIFontMetrics.default.scaledFont(for: font)
-    }
-
-    var lineHeight: CGFloat {
-        return fontDescription.lineHeight
-    }
-}
-
-internal struct TextModifier: ViewModifier {
-    let textStyle: TextStyle
-    var isFixedSize: Bool = false
-    
-    func body(content: Content) -> some View {
-        content
-            .font(
-                isFixedSize ?
-                    .custom(textStyle.font.fontName, fixedSize: textStyle.font.pointSize) :
-                    .custom(textStyle.font.fontName, size: textStyle.font.pointSize)
-                )
-  
-            .lineSpacing(textStyle.lineHeight - textStyle.font.lineHeight)
-            .padding(
-                .vertical,
-                (textStyle.lineHeight - textStyle.font.lineHeight) / 2)
-    }
-}
-
-public extension View {
-    func textStyle(_ textStyle: TextStyle, isFixedSize: Bool = false) -> some View {
-        self
-            .modifier(
-                TextModifier(
-                    textStyle: textStyle,
-                    isFixedSize: isFixedSize
-                )
-            )
     }
 }

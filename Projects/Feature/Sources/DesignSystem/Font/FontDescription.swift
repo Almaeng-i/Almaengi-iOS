@@ -5,11 +5,10 @@
 //  Created by 새미 on 5/22/24.
 //
 
-import UIKit
+import SwiftUI
 
 struct FontDescription {
-    let font: AlmaengiFont
+    let font: Font
     let size: CGFloat
     let lineHeight: CGFloat
-    let style: UIFont.TextStyle
 }
