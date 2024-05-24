@@ -17,7 +17,7 @@ struct CameraButton: View {
                 .frame(width: size, height: size)
             Image(asset: FeatureAsset.Images.camera)
                 .resizable()
-                .resizeImage(imgName: "camera", imageWidth: (size / 2) + 2)
+                .frame(width: ((size / 2) + 2), height: ((size / 2) + 2))
         }
     }
 }

@@ -33,7 +33,6 @@ struct AlmaengiView: View {
                     .stroke(Color.p3, lineWidth: selectedIndex == index ? 1 : 0)
             )
             .cornerRadius(8)
-            .frame(width: .infinity, height: .infinity)
             if selectedIndex == index {
                 SelectMark()
             }
