@@ -49,9 +49,9 @@ public struct AlmaengiSelectView: View {
                 }
                 .padding(.vertical, 8)
                 Spacer()
-//                AlmaengiNavLink(destination: NamingView(name: "")) {
-//                    AlmaengiButton(title: "다음")
-//                }
+                AlmaengiNavLink(destination: NamingView(name: "")) {
+                    AlmaengiButton(title: "다음")
+                }
                 .padding(.vertical, 20)
             }
             .padding(.horizontal, 24)
