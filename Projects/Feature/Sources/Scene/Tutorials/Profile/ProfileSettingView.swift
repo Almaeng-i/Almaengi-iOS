@@ -25,8 +25,10 @@ struct ProfileSettingView: View {
             .padding(.vertical, 24)
             AlmaengiTextEditor(title: "한 줄 소개", text: $text)
             Spacer()
-            AlmaengiButton(title: "계속")
-                .padding(.bottom, 16)
+            AlmaengiNavLink(destination: TutorialView()) {
+                AlmaengiButton(title: "계속")
+            }
+            .padding(.bottom, 16)
             HStack {
                 Spacer()
                 Button(action: {
