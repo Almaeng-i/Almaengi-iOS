@@ -24,9 +24,10 @@ struct NamingView: View {
                     .frame(width: 64, height: 64)
             }
             .padding(.vertical, 20)
+            AlmaengiText("이름", textStyle: .descriptionBold, color: .g9, isFixedSize: true)
+                .padding(.bottom, 4)
             AlmaengiTextField(
                 "알맹이의 이름을 입력해주세요.",
-                title: "이름",
                 text: $name,
                 helpMessage: "알맹이 이름은 20자까지 지을 수 있어요."
             )

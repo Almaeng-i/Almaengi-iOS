@@ -3,6 +3,7 @@ import Feature
 
 public struct ContentView: View {
     public var body: some View {
-        CheckButton()
+        BucketListPopup(bucketList: "", content: "")
     }
 }
+

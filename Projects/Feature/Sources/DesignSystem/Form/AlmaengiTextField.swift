@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct AlmaengiTextField: View {
-    var title: String
     var placeholder: String
     var helpMessage: String
     var isError: Bool
@@ -30,14 +29,12 @@ struct AlmaengiTextField: View {
     
     public init(
             _ placeholder: String = "",
-            title: String = "",
             text: Binding<String>,
             helpMessage: String = "",
             isError: Bool = false,
             isEmpty: Bool = false
     ) {
         self.placeholder = placeholder
-        self.title = title
         self._text = text
         self.helpMessage = helpMessage
         self.isError = isError
@@ -45,8 +42,6 @@ struct AlmaengiTextField: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            AlmaengiText(title, textStyle: .descriptionBold, color: .g9, isFixedSize: true)
-                .padding(.bottom, 4)
             TextField(placeholder, text: $text)
                 .cornerRadius(8)
                 .padding(.vertical, 15)
