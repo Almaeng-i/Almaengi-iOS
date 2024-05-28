@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AlmaengiTabBar: View {
     @State var selectedIndex = 0
+    
     let selectedImageNames = ["homeSelected", "bucketlistSelected", "mypageSelected", "shopSelected"]
     let unSelectedImageNames = ["home", "bucketlist", "mypage", "shop"]
     
