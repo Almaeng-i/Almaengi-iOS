@@ -8,6 +8,7 @@
 import SwiftUI
 
 public struct BuketListView: View {
+    
     public init() {}
     
     public var body: some View {
@@ -34,4 +35,6 @@ public struct BuketListView: View {
         .padding(.vertical, 24)
     }
 }
+
+
 
