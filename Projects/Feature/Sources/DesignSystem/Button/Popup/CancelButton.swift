@@ -11,7 +11,7 @@ struct CancelButton: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .background(.white)
+                .foregroundColor(.white)
             AlmaengiText("취소", textStyle: .bodyBold, color: .p3)
         }
         .frame(width: 84, height: 40)
