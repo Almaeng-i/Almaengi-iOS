@@ -18,7 +18,7 @@ public struct ListView: View {
                 .padding(.bottom, 14)
             ListTabBar()
                 .padding(.vertical, 12)
-            BuketListView()
+            BucketListView()
         }
         .padding(.horizontal, 24)
     }

@@ -1,5 +1,5 @@
 //
-//  BuketListView.swift
+//  BucketListView.swift
 //  Feature
 //
 //  Created by 새미 on 5/23/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct BuketListView: View {
+public struct BucketListView: View {
     
     public init() {}
     
