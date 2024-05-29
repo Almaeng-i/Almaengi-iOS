@@ -23,7 +23,8 @@ struct ProfileSettingView: View {
                 Spacer()
             }
             .padding(.vertical, 24)
-            AlmaengiTextEditor(title: "한 줄 소개", text: $text)
+            AlmaengiText("한 줄 소개", textStyle: .descriptionMedium, color: .g9)
+            AlmaengiTextEditor(text: $text)
             Spacer()
             AlmaengiNavLink(destination: TutorialView()) {
                 AlmaengiButton(title: "계속")
