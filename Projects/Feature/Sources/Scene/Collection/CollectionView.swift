@@ -21,7 +21,7 @@ public struct CollectionView: View {
                     .frame(width: 249)
                 HStack(spacing: 8) {
                     AlmaengiText("새미", textStyle: .titleBold, color: Color(red: 0.32, green: 0.24, blue: 0.16))
-                    LevelView()
+                    LevelView(background: .p3)
                 }
             }
             Spacer()
