@@ -236,17 +236,3 @@ private extension CalenderView {
     return month
   }
 }
-
-// MARK: - Date Extension
-extension Date {
-  static let calendarDayDateFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateFormat = "yyyy.MM"
-    formatter.locale = Locale(identifier: "ko_KR")
-    return formatter
-  }()
-  
-  var formattedCalendarDayDate: String {
-    return Date.calendarDayDateFormatter.string(from: self)
-  }
-}
