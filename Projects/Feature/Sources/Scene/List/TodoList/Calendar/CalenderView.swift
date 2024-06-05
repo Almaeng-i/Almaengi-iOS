@@ -44,7 +44,7 @@ struct CalenderView: View {
     private var yearMonthView: some View {
         HStack(spacing: 8) {
             AlmaengiText(Self.calendarHeaderDateFormatter.string(from: month), textStyle: .h2Bold, color: .g9)
-//            WeeklyMonthlyButton()
+            WeeklyMonthlyButton()
             Spacer()
             HStack(spacing: 12) {
                 Button {
