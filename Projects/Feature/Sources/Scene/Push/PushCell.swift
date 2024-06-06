@@ -24,7 +24,7 @@ struct PushCell: View {
             Button(action: {
                 print("Hello")
             }, label: {
-                Image(asset: FeatureAsset.Images.kebapMenu)
+                Image(asset: FeatureAsset.Images.grayKebapMenu)
             })
         }
         .padding(.vertical, 10)

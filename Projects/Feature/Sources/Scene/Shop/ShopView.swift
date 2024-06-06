@@ -12,17 +12,22 @@ public struct ShopView: View {
     public init() { }
     
     public var body: some View {
-        AlmaengiText("상점", textStyle: .titleBold, color: .black)
-        HStack {
-            Text(countText)
-                .foregroundColor(.g8)
-                .font(Font(FeatureFontFamily.Pretendard.medium.font(size: 16)))
-            AlmaengiText("전체", textStyle: .bodyMedium, color: .g8)
-            Button(action: {
-                print("")
-            }, label: {
-                Image(asset: FeatureAsset.Images.downArrow)
-            })
+        ScrollView {
+            VStack {
+                AlmaengiText("상점", textStyle: .titleBold, color: .black)
+                HStack {
+                    Text(countText)
+                        .foregroundColor(.g8)
+                        .font(Font(FeatureFontFamily.Pretendard.medium.font(size: 16)))
+                    AlmaengiText("전체", textStyle: .bodyMedium, color: .g8)
+                    Button(action: {
+                        print("")
+                    }, label: {
+                        Image(asset: FeatureAsset.Images.downArrow)
+                    })
+                }
+                ShopCell(name: "안경", point: 34)
+            }
         }
     }
 }
