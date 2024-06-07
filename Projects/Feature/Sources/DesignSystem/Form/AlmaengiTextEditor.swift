@@ -8,14 +8,10 @@
 import SwiftUI
 
 struct AlmaengiTextEditor: View {
-    var title: String
     @Binding var text: String
     
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
-            Text(title)
-                .font(.system(size: 14, weight: .medium))
-                .foregroundColor(.gray)
             VStack(alignment: .trailing, spacing: 0) {
                TextField("50자 이내로 새미님을 간단히 소개해주세요.", text: $text, axis: .vertical)
                     .frame(maxWidth: .infinity, maxHeight: 48)
@@ -31,7 +27,7 @@ struct AlmaengiTextEditor: View {
             .overlay(
                 RoundedRectangle(cornerRadius: 8)
                     .inset(by: 0.5)
-                    .stroke(Color.gray, lineWidth: 1)
+                    .stroke(Color.g4, lineWidth: 1)
             )
         }
     }

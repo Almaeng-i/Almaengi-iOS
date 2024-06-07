@@ -1,5 +1,5 @@
 //
-//  CalenderView.swift
+//  MonthlyCalenderView.swift
 //  Feature
 //
 //  Created by 새미 on 5/29/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CalenderView: View {
+struct MonthlyCalenderView: View {
     
     @State private var month: Date = Date()
     @State private var clickedCurrentMonthDates: Date?
@@ -143,7 +143,7 @@ private struct CellView: View {
 }
 
 // MARK: - Calender Properties
-private extension CalenderView {
+private extension MonthlyCalenderView {
   var today: Date {
     let now = Date()
     let components = Calendar.current.dateComponents([.year, .month, .day], from: now)
@@ -160,7 +160,7 @@ private extension CalenderView {
 }
 
 // MARK: - Calender Method
-private extension CalenderView {
+private extension MonthlyCalenderView {
   func getDate(for index: Int) -> Date {
     let calendar = Calendar.current
     guard let firstDayOfMonth = calendar.date(
@@ -234,5 +234,19 @@ private extension CalenderView {
       return newMonth
     }
     return month
+  }
+}
+
+// MARK: - Date Extension
+extension Date {
+  static let calendarDayDateFormatter: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yyyy.MM"
+    formatter.locale = Locale(identifier: "ko_KR")
+    return formatter
+  }()
+  
+  var formattedCalendarDayDate: String {
+    return Date.calendarDayDateFormatter.string(from: self)
   }
 }
