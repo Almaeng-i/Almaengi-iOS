@@ -7,13 +7,29 @@
 
 import SwiftUI
 
-struct AlmaengiTabBar: View {
+public struct AlmaengiTabBar: View {
+    
     @State var selectedIndex = 0
     
-    let selectedImageNames = ["homeSelected", "bucketlistSelected", "mypageSelected", "shopSelected"]
-    let unSelectedImageNames = ["home", "bucketlist", "mypage", "shop"]
+    let selectedImage = [
+        Image(asset: FeatureAsset.Images.homeSelected),
+        Image(asset: FeatureAsset.Images.bucketlistSelected),
+        Image(asset: FeatureAsset.Images.shopSelected),
+        Image(asset: FeatureAsset.Images.pushSelected),
+        Image(asset: FeatureAsset.Images.mypageSelected)
+    ]
     
-    var body: some View {
+    let unSelectedImage = [
+        Image(asset: FeatureAsset.Images.home),
+        Image(asset: FeatureAsset.Images.bucketlist),
+        Image(asset: FeatureAsset.Images.shop),
+        Image(asset: FeatureAsset.Images.push),
+        Image(asset: FeatureAsset.Images.mypage)
+    ]
+    
+    public init() { }
+    
+    public var body: some View {
         VStack(spacing: 0) {
             ZStack {
                 switch selectedIndex {
@@ -30,14 +46,11 @@ struct AlmaengiTabBar: View {
                 }
             }
             HStack(spacing: 0) {
-                ForEach(selectedImageNames.indices, id: \.self) { index in
-                    Image(
-                        selectedIndex == index ? selectedImageNames[index] : unSelectedImageNames[index]
-                    )
-                    .resizable()
+                ForEach(selectedImage.indices, id: \.self) { index in
+                    (selectedIndex == index ? AnyView(selectedImage[index]) : AnyView(unSelectedImage[index]))
                     .frame(width: 36, height: 36)
                     .padding(.horizontal,
-                             ((UIScreen.main.bounds.width) * 0.07)
+                             ((UIScreen.main.bounds.width) * 0.05)
                     )
                     .gesture(
                         TapGesture()
