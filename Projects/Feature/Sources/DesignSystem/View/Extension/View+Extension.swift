@@ -11,6 +11,17 @@ extension View {
     func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
         clipShape(RoundedCorner(radius: radius, corners: corners))
     }
+    
+    @ViewBuilder
+    func hideListRowSeparator() -> some View {
+        if #available(iOS 15.0, *) {
+            self.listRowSeparator(.hidden)
+        } else {
+            self.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                .listRowInsets(EdgeInsets(top: -1, leading: -1, bottom: -1, trailing: -1))
+                .background(Color.white)
+        }
+    }
 }
 
 struct RoundedCorner: Shape {
