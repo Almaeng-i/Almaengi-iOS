@@ -36,7 +36,7 @@ public struct AlmaengiTabBar: View {
                 case 0:
                     MainView()
                 case 1:
-                    Image(asset: FeatureAsset.Images.home)
+                    ListView()
                 case 2:
                     Image(asset: FeatureAsset.Images.home)
                 case 3:
@@ -66,6 +66,7 @@ public struct AlmaengiTabBar: View {
                 }
                 .padding(.top, 8)
                 .padding(.bottom, 42)
+                .background(selectedIndex == 0 ? .clear : .white)
             }
         }
         .edgesIgnoringSafeArea(.bottom)
