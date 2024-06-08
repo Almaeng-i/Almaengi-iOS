@@ -14,6 +14,7 @@ public struct PushView: View {
         VStack(alignment: .leading) {
             AlmaengiText("알림", textStyle: .titleBold, color: .g9)
                 .padding(.vertical, 17)
+                .padding(.top, 44)
             List {
                 ForEach(1...10, id: \.self) { itemIndex in
                     PushCell()
