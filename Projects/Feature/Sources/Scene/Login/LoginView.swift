@@ -11,34 +11,35 @@ public struct LoginView: View {
     public init() {}
     
     public var body: some View {
-        VStack {
-            VStack(alignment: .leading, spacing: 0) {
-                PotatoView()
-                    .padding(.leading, 77)
-                Text(mainText)
-                    .multilineTextAlignment(.center)
-                    .lineSpacing(6)
-                    .padding(.vertical, 6)
-                    .foregroundColor(.g9)
-                    .font(Font(FeatureFontFamily.Pretendard.bold.font(size: 26)))
+            VStack {
+                VStack(alignment: .leading, spacing: 0) {
+                    PotatoView()
+                        .padding(.leading, 77)
+                    Text(mainText)
+                        .multilineTextAlignment(.center)
+                        .lineSpacing(6)
+                        .padding(.vertical, 6)
+                        .foregroundColor(.g9)
+                        .font(Font(FeatureFontFamily.Pretendard.bold.font(size: 26)))
+                }
+                .padding(.top, 128)
+                .frame(maxWidth: .infinity)
+                Spacer()
+                Image(asset: FeatureAsset.Images.sprout)
+                    .resizable()
+                    .frame(width: 222, height: 193)
+                Spacer()
+                VStack(spacing: 12) {
+                    Image(asset: FeatureAsset.Images.kakaoLogin)
+                    Image(asset: FeatureAsset.Images.appleLogin)
+                }
+                .padding(.bottom, 24)
             }
-            .padding(.top, 128)
-            .frame(maxWidth: .infinity)
-            Spacer()
-            Image(asset: FeatureAsset.Images.sprout)
-                .resizable()
-                .frame(width: 222, height: 193)
-            Spacer()
-            VStack(spacing: 12) {
-                Image(asset: FeatureAsset.Images.kakaoLogin)
-                Image(asset: FeatureAsset.Images.appleLogin)
-            }
-            .padding(.bottom, 24)
-        }
-        .padding(.horizontal, 24)
+            .padding(.horizontal, 24)
     }
 }
 
+// MARK: - Extension
 extension LoginView {
     @available(iOS 15, *)
     var mainText: AttributedString {

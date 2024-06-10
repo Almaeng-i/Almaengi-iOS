@@ -24,7 +24,6 @@ public struct MypageView: View {
         VStack(alignment: .leading) {
             AlmaengiText("마이페이지", textStyle: .titleBold, color: .black)
                 .padding(.vertical, 14)
-                .padding(.top, 44)
             HStack {
                 ProfileView(size: 56)
                 VStack(alignment: .leading, spacing: 0) {
@@ -37,8 +36,9 @@ public struct MypageView: View {
             .padding(.vertical, 12)
             SectionHeader(title: sectionTitle[0])
             VStack(spacing: 20) {
-                ForEach(0..<2) { index in
-                    SectionCell(icon: icon[index], title: title[index])
+                SectionCell(icon: icon[0], title: title[0])
+                AlmaengiNavLink(destination: CollectionView()) {
+                    SectionCell(icon: icon[1], title: title[1])
                 }
             }
             .padding(.vertical, 16)

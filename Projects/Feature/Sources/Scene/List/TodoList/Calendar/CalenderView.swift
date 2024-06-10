@@ -23,7 +23,7 @@ struct CalenderView: View {
     var body: some View {
         VStack {
             headerView
-            calendarGridView
+//            calendarGridView
         }
     }
     
@@ -44,7 +44,7 @@ struct CalenderView: View {
     private var yearMonthView: some View {
         HStack(spacing: 8) {
             AlmaengiText(Self.calendarHeaderDateFormatter.string(from: month), textStyle: .h2Bold, color: .g9)
-//            WeeklyMonthlyButton()
+            WeeklyMonthlyButton()
             Spacer()
             HStack(spacing: 12) {
                 Button {
@@ -64,42 +64,42 @@ struct CalenderView: View {
     }
     
     // MARK: - Grid Calendar
-    private var calendarGridView: some View {
-        let daysInMonth: Int = numberOfDays(in: month)
-        let firstWeekday: Int = firstWeekdayOfMonth(in: month) - 1
-        let lastDayOfMonthBefore = numberOfDays(in: previousMonth())
-        let numberOfRows = Int(ceil(Double(daysInMonth + firstWeekday) / 7.0))
-        let visibleDaysOfNextMonth = numberOfRows * 7 - (daysInMonth + firstWeekday)
-        
-        return LazyVGrid(columns: Array(repeating: GridItem(), count: 7), content: {
-            ForEach(-firstWeekday ..< daysInMonth + visibleDaysOfNextMonth, id: \.self) { index in
-                Group {
-                    if index > -1 && (daysInMonth != 0) {
-                        let date = getDate(for: index)
-                        let day = Calendar.current.component(.day, from: date)
-                        let clicked = clickedCurrentMonthDates == date
-                        let isToday = date.formattedCalendarDayDate == today.formattedCalendarDayDate
-                        
-                        CellView(day: day, clicked: clicked, isToday: isToday)
-                    } else if let prevMonthDate = Calendar.current.date (
-                        byAdding: .day,
-                        value: index + lastDayOfMonthBefore,
-                        to: previousMonth()
-                    ) {
-                        let day = Calendar.current.component(.day, from: prevMonthDate)
-                        
-                        CellView(day: day, isCurrentMonthDay: false)
-                    }
-                }
-                .onTapGesture {
-                    if 0 <= index && index < daysInMonth {
-                        let date = getDate(for: index)
-                        clickedCurrentMonthDates = date
-                    }
-                }
-            }
-        })
-    }
+//    private var calendarGridView: some View {
+//        let daysInMonth: Int = numberOfDays(in: month)
+//        let firstWeekday: Int = firstWeekdayOfMonth(in: month) - 1
+//        let lastDayOfMonthBefore = numberOfDays(in: previousMonth())
+//        let numberOfRows = Int(ceil(Double(daysInMonth + firstWeekday) / 7.0))
+//        let visibleDaysOfNextMonth = numberOfRows * 7 - (daysInMonth + firstWeekday)
+//        
+//        return LazyVGrid(columns: Array(repeating: GridItem(), count: 7), content: {
+//            ForEach(-firstWeekday ..< daysInMonth + visibleDaysOfNextMonth, id: \.self) { index in
+//                Group {
+//                    if index > -1 && (daysInMonth != 0) {
+//                        let date = getDate(for: index)
+//                        let day = Calendar.current.component(.day, from: date)
+//                        let clicked = clickedCurrentMonthDates == date
+//                        let isToday = date.formattedCalendarDayDate == today.formattedCalendarDayDate
+//                        
+//                        CellView(day: day, clicked: clicked, isToday: isToday)
+//                    } else if let prevMonthDate = Calendar.current.date (
+//                        byAdding: .day,
+//                        value: index + lastDayOfMonthBefore,
+//                        to: previousMonth()
+//                    ) {
+//                        let day = Calendar.current.component(.day, from: prevMonthDate)
+//                        
+//                        CellView(day: day, isCurrentMonthDay: false)
+//                    }
+//                }
+//                .onTapGesture {
+//                    if 0 <= index && index < daysInMonth {
+//                        let date = getDate(for: index)
+//                        clickedCurrentMonthDates = date
+//                    }
+//                }
+//            }
+//        })
+//    }
 }
 
 // MARK: - Day Cell
@@ -234,19 +234,5 @@ private extension CalenderView {
       return newMonth
     }
     return month
-  }
-}
-
-// MARK: - Date Extension
-extension Date {
-  static let calendarDayDateFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateFormat = "yyyy.MM"
-    formatter.locale = Locale(identifier: "ko_KR")
-    return formatter
-  }()
-  
-  var formattedCalendarDayDate: String {
-    return Date.calendarDayDateFormatter.string(from: self)
   }
 }

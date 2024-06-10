@@ -11,19 +11,20 @@ public struct PushView: View {
     public init() {}
     
     public var body: some View {
-        VStack(alignment: .leading) {
-            AlmaengiText("알림", textStyle: .titleBold, color: .g9)
-                .padding(.vertical, 17)
-            List {
-                ForEach(1...10, id: \.self) { itemIndex in
+        ScrollView {
+            VStack(alignment: .leading) {
+                AlmaengiText("알림", textStyle: .titleBold, color: .g9)
+                    .padding(.vertical, 17)
+                VStack {
                     PushCell()
-                        .listRowSeparator(.hidden)
-                        .listRowInsets(EdgeInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0)))
-                    
+                    PushCell()
+                    PushCell()
+                    PushCell()
+                    PushCell()
+                    PushCell()
                 }
             }
-            .listStyle(.plain)
+            .padding(.horizontal, 24)
         }
-        .padding(.horizontal, 24)
     }
 }

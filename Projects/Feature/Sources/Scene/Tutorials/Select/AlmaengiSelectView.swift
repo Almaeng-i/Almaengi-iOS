@@ -55,7 +55,7 @@ public struct AlmaengiSelectView: View {
                 .padding(.vertical, 20)
             }
             .padding(.horizontal, 24)
-            .AlmaengiNavBarItems(title: "알맹이 선택", backButtonHidden: true)
+            .AlmaengiNavBarItems(title: "알맹이 선택", backButtonHidden: true, backgroundColor: .clear)
         }
     }
 }

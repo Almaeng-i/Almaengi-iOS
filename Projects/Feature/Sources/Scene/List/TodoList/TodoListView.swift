@@ -7,8 +7,15 @@
 
 import SwiftUI
 
-struct TodoListView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+public struct TodoListView: View {
+    
+    public init() {}
+    
+    public var body: some View {
+        VStack(spacing: 0) {
+            CalenderView(month: Date())
+            TodoListTemplate(title: "ToDo")
+            TodoListTemplate(title: "Monthly Goal")
+        }
     }
 }
