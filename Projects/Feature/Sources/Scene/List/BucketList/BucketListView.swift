@@ -22,7 +22,7 @@ public struct BucketListView: View {
                     Image(asset: FeatureAsset.Images.plus)
                 }
             }
-            List {
+            VStack {
                 ForEach(1...10, id: \.self) { itemIndex in
                     BucketListCell(title: "알맹이 iOS Test Text", content: "Test Content", background: .clear, isAchieve: true)
                         .listRowSeparator(.hidden)
@@ -30,8 +30,16 @@ public struct BucketListView: View {
                         
                 }
             }
-            .environment(\.defaultMinListRowHeight, 12)
-            .listStyle(.plain)
+//            List {
+//                ForEach(1...10, id: \.self) { itemIndex in
+//                    BucketListCell(title: "알맹이 iOS Test Text", content: "Test Content", background: .clear, isAchieve: true)
+//                        .listRowSeparator(.hidden)
+//                        .listRowInsets(EdgeInsets(.init(top: 6, leading: 0, bottom: 6, trailing: 0)))
+//                        
+//                }
+//            }
+//            .environment(\.defaultMinListRowHeight, 12)
+//            .listStyle(.plain)
         }
         .padding(.vertical, 24)
     }

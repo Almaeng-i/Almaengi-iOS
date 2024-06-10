@@ -14,11 +14,10 @@ public struct ListView: View {
     public init() { }
     
     public var body: some View {
-        ScrollView(){
+      
             VStack(alignment: .leading, spacing: 0) {
                 AlmaengiText("리스트", textStyle: .titleBold, color: .black)
-                    .padding(.top, 58)
-                    .padding(.bottom, 14)
+                    .padding(.vertical, 14)
                 ListTabBar(selectedTab: $selectedTab)
                     .padding(.vertical, 12)
                 switch selectedTab {
@@ -30,5 +29,5 @@ public struct ListView: View {
             }
             .padding(.horizontal, 24)
         }
-    }
+    
 }

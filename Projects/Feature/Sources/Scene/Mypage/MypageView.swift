@@ -24,7 +24,6 @@ public struct MypageView: View {
         VStack(alignment: .leading) {
             AlmaengiText("마이페이지", textStyle: .titleBold, color: .black)
                 .padding(.vertical, 14)
-                .padding(.top, 44)
             HStack {
                 ProfileView(size: 56)
                 VStack(alignment: .leading, spacing: 0) {
