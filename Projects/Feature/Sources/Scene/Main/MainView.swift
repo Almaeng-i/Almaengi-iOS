@@ -32,13 +32,16 @@ public struct MainView: View {
                     VStack(spacing: 23) {
                         ZStack {
                             SpeechBubble()
+                                .background(.yellow)
+                                .offset(x: 98, y: -169)
+                        
                             Image(asset: FeatureAsset.Images.sprout)
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
-                                .frame(height: 175)
-                                .padding(.top, 15)
-                                .padding(.bottom, 11)
+                                .frame(height: 200)
+                                .background(.green)
                         }
+
                         AlmaengiText("새미(Lv.1)", textStyle: .h2Bold, color: .p4)
                         HStack(spacing: 8) {
                             ProgressBar()

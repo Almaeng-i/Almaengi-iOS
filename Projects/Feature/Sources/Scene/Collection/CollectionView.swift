@@ -29,5 +29,7 @@ public struct CollectionView: View {
         }
         .background(Color.p1)
         .ignoresSafeArea()
+        .AlmaengiNavigationBackgroundColor(.p1)
+        .AlmaengiNavigationTitle("수집한 알맹이")
     }
 }

@@ -11,6 +11,7 @@ struct AlmaengiNavBarContainerView<Content: View>: View {
     let content: Content
     @State private var showBackButton: Bool = true
     @State private var title: String = ""
+    @State private var backgroundColor: Color = .clear
     
     init(@ViewBuilder content: () -> Content) {
         self.content = content()
@@ -18,7 +19,7 @@ struct AlmaengiNavBarContainerView<Content: View>: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            AlmaengiNavBarView(showBackButton: showBackButton, title: title)
+            AlmaengiNavBarView(showBackButton: showBackButton, title: title, backgroundColor: backgroundColor)
             content
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
@@ -27,6 +28,9 @@ struct AlmaengiNavBarContainerView<Content: View>: View {
         })
         .onPreferenceChange(AlmaengiNavBarBackButtonHiddenPreferenceKey.self, perform: { value in
             self.showBackButton  = !value
+        })
+        .onPreferenceChange(AlmaengiNavBarBackgroundColorPreferenceKey.self, perform: { value in
+            self.backgroundColor = value
         })
     }
 }

@@ -21,3 +21,10 @@ struct AlmaengiNavBarBackButtonHiddenPreferenceKey: PreferenceKey {
     }
 }
 
+struct AlmaengiNavBarBackgroundColorPreferenceKey: PreferenceKey {
+    static var defaultValue: Color = .clear
+    static func reduce(value: inout Color, nextValue: () -> Color) {
+        value = nextValue()
+    }
+}
+

@@ -16,9 +16,14 @@ extension View {
         preference(key: AlmaengiNavBarBackButtonHiddenPreferenceKey.self, value: hidden)
     }
     
-    func AlmaengiNavBarItems(title: String, backButtonHidden: Bool) -> some View {
+    func AlmaengiNavigationBackgroundColor(_ backgroundColor: Color) -> some View {
+        preference(key: AlmaengiNavBarBackgroundColorPreferenceKey.self, value: backgroundColor)
+    }
+    
+    func AlmaengiNavBarItems(title: String, backButtonHidden: Bool, backgroundColor: Color) -> some View {
         self
             .AlmaengiNavigationTitle(title)
             .AlmaengiNavigationBackButtonHidden(backButtonHidden)
+            .AlmaengiNavigationBackgroundColor(backgroundColor)
     }
 }

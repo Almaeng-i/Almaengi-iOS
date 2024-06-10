@@ -36,17 +36,14 @@ public struct AlmaengiTabBar: View {
                     switch selectedIndex {
                     case 0:
                         MainView()
-                            .AlmaengiNavBarItems(title: "", backButtonHidden: true)
                     case 1:
                         ListView()
-                            .AlmaengiNavBarItems(title: "", backButtonHidden: true)
                     case 2:
                         Image(asset: FeatureAsset.Images.home)
                     case 3:
                         PushView()
                     case 4:
                         MypageView()
-                            .AlmaengiNavBarItems(title: "", backButtonHidden: true)
                     default:
                         Image(asset: FeatureAsset.Images.home)
                     }
@@ -74,6 +71,7 @@ public struct AlmaengiTabBar: View {
                 }
             }
             .edgesIgnoringSafeArea(.bottom)
+            .AlmaengiNavigationBackButtonHidden(true)
         }
     }
 }
