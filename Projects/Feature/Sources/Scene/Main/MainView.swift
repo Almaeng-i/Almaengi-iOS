@@ -34,7 +34,6 @@ public struct MainView: View {
                             SpeechBubble()
                                 .background(.yellow)
                                 .offset(x: 98, y: -169)
-                        
                             Image(asset: FeatureAsset.Images.sprout)
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
