@@ -16,18 +16,22 @@ public struct CollectionView: View {
     public var body: some View {
         VStack {
             VStack(spacing: 0) {
+                Spacer()
                 Image(asset: FeatureAsset.Images.potato3)
                     .resizable()
-                    .frame(width: 249)
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 195)
                 HStack(spacing: 8) {
                     AlmaengiText("새미", textStyle: .titleBold, color: Color(red: 0.32, green: 0.24, blue: 0.16))
                     LevelView(background: .p3)
                 }
+                Spacer()
             }
-            Spacer()
             AlmaengiList(selectedImageName: $selectedImageName)
         }
         .background(Color.p1)
         .ignoresSafeArea()
+        .AlmaengiNavigationBackgroundColor(.p1)
+        .AlmaengiNavigationTitle("수집한 알맹이")
     }
 }

@@ -25,15 +25,10 @@ public struct TodoListTemplate: View {
                     Image(asset: FeatureAsset.Images.plus)
                 }
             }
-            List {
-                ForEach(1...2, id: \.self) { itemIndex in
-                    TodoListCell()
-                        .listRowSeparator(.hidden)
-                        .listRowInsets(EdgeInsets(.init(top: 4, leading: 0, bottom: 4, trailing: 0)))
-                        
-                }
+            VStack {
+                TodoListCell()
+                TodoListCell()
             }
-            .listStyle(.plain)
         }
         .padding(.vertical, 12)
     }

@@ -30,39 +30,48 @@ public struct AlmaengiTabBar: View {
     public init() { }
     
     public var body: some View {
-        VStack(spacing: 0) {
+        AlmaengiNavView {
             ZStack {
-                switch selectedIndex {
-                case 0:
-                    Image(asset: FeatureAsset.Images.home)
-                case 1:
-                    Image(asset: FeatureAsset.Images.home)
-                case 2:
-                    Image(asset: FeatureAsset.Images.home)
-                case 3:
-                    Image(asset: FeatureAsset.Images.home)
-                default:
-                    Image(asset: FeatureAsset.Images.home)
+                ZStack {
+                    switch selectedIndex {
+                    case 0:
+                        MainView()
+                    case 1:
+                        ListView()
+                    case 2:
+                        Image(asset: FeatureAsset.Images.home)
+                    case 3:
+                        PushView()
+                    case 4:
+                        MypageView()
+                    default:
+                        Image(asset: FeatureAsset.Images.home)
+                    }
+                }
+                VStack {
+                    Spacer()
+                    HStack(spacing: 0) {
+                        ForEach(selectedImage.indices, id: \.self) { index in
+                            (selectedIndex == index ? AnyView(selectedImage[index]) : AnyView(unSelectedImage[index]))
+                            .frame(width: 36, height: 36)
+                            .padding(.horizontal,
+                                     ((UIScreen.main.bounds.width) * 0.05)
+                            )
+                            .gesture(
+                                TapGesture()
+                                    .onEnded { _ in
+                                        selectedIndex = index
+                                    }
+                            )
+                        }
+                    }
+                    .padding(.top, 8)
+                    .padding(.bottom, 42)
+                    .background(selectedIndex == 0 ? .clear : .white)
                 }
             }
-            HStack(spacing: 0) {
-                ForEach(selectedImage.indices, id: \.self) { index in
-                    (selectedIndex == index ? AnyView(selectedImage[index]) : AnyView(unSelectedImage[index]))
-                    .frame(width: 36, height: 36)
-                    .padding(.horizontal,
-                             ((UIScreen.main.bounds.width) * 0.05)
-                    )
-                    .gesture(
-                        TapGesture()
-                            .onEnded { _ in
-                                selectedIndex = index
-                            }
-                    )
-                }
-            }
-            .padding(.top, 8)
-            .padding(.bottom, 42)
+            .edgesIgnoringSafeArea(.bottom)
+            .AlmaengiNavigationBackButtonHidden(true)
         }
-        .edgesIgnoringSafeArea(.bottom)
     }
 }

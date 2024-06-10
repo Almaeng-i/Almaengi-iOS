@@ -14,19 +14,21 @@ public struct ListView: View {
     public init() { }
     
     public var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            AlmaengiText("리스트", textStyle: .titleBold, color: .black)
-                .padding(.top, 58)
-                .padding(.bottom, 14)
-            ListTabBar(selectedTab: $selectedTab)
-                .padding(.vertical, 12)
-            switch selectedTab {
-            case .todolist:
-                TodoListView()
-            case .bucketlist:
-                BucketListView()
+        ScrollView {
+            VStack(alignment: .leading, spacing: 0) {
+                AlmaengiText("리스트", textStyle: .titleBold, color: .black)
+                    .padding(.vertical, 14)
+                ListTabBar(selectedTab: $selectedTab)
+                    .padding(.vertical, 12)
+                switch selectedTab {
+                case .todolist:
+                    TodoListView()
+                case .bucketlist:
+                    BucketListView()
+                }
             }
+            .padding(.horizontal, 24)
         }
-        .padding(.horizontal, 24)
     }
+    
 }

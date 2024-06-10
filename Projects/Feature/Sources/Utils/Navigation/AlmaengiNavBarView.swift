@@ -12,6 +12,7 @@ struct AlmaengiNavBarView: View {
     
     let showBackButton: Bool
     let title: String
+    let backgroundColor: Color
     
     var body: some View {
         HStack(alignment: .center) {
@@ -23,6 +24,7 @@ struct AlmaengiNavBarView: View {
             Spacer()
         }
         .padding(EdgeInsets(top: 8, leading: 24, bottom: 8, trailing: 52))
+        .background(backgroundColor)
     }
 }
 
