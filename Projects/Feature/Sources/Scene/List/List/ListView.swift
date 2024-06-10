@@ -14,7 +14,7 @@ public struct ListView: View {
     public init() { }
     
     public var body: some View {
-      
+        ScrollView {
             VStack(alignment: .leading, spacing: 0) {
                 AlmaengiText("리스트", textStyle: .titleBold, color: .black)
                     .padding(.vertical, 14)
@@ -29,5 +29,6 @@ public struct ListView: View {
             }
             .padding(.horizontal, 24)
         }
+    }
     
 }
