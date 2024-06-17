@@ -11,11 +11,11 @@ public struct MypageView: View {
     private let sectionTitle: [String] = ["알맹이 설정", "개인정보 설정"]
     private let title: [String] = ["내 알맹이", "수집한 알맹이", "로그아웃", "회원탈퇴", "프로필 설정"]
     private let icon = [
-        Image(asset: FeatureAsset.Images.nuts),
-        Image(asset: FeatureAsset.Images.box),
-        Image(asset: FeatureAsset.Images.logout),
-        Image(asset: FeatureAsset.Images.signout),
-        Image(asset: FeatureAsset.Images.setting),
+        Image(asset: FeatureAsset.Images.Icon.nuts),
+        Image(asset: FeatureAsset.Images.Icon.box),
+        Image(asset: FeatureAsset.Images.Icon.logout),
+        Image(asset: FeatureAsset.Images.Icon.signout),
+        Image(asset: FeatureAsset.Images.Icon.setting),
     ]
     
     public init() { }

@@ -12,19 +12,19 @@ public struct AlmaengiTabBar: View {
     @State var selectedIndex = 0
     
     let selectedImage = [
-        Image(asset: FeatureAsset.Images.homeSelected),
-        Image(asset: FeatureAsset.Images.bucketlistSelected),
-        Image(asset: FeatureAsset.Images.shopSelected),
-        Image(asset: FeatureAsset.Images.pushSelected),
-        Image(asset: FeatureAsset.Images.mypageSelected)
+        Image(asset: FeatureAsset.Images.Tab.homeSelected),
+        Image(asset: FeatureAsset.Images.Tab.bucketlistSelected),
+        Image(asset: FeatureAsset.Images.Tab.shopSelected),
+        Image(asset: FeatureAsset.Images.Tab.pushSelected),
+        Image(asset: FeatureAsset.Images.Tab.mypageSelected)
     ]
     
     let unSelectedImage = [
-        Image(asset: FeatureAsset.Images.home),
-        Image(asset: FeatureAsset.Images.bucketlist),
-        Image(asset: FeatureAsset.Images.shop),
-        Image(asset: FeatureAsset.Images.push),
-        Image(asset: FeatureAsset.Images.mypage)
+        Image(asset: FeatureAsset.Images.Tab.home),
+        Image(asset: FeatureAsset.Images.Tab.bucketlist),
+        Image(asset: FeatureAsset.Images.Tab.shop),
+        Image(asset: FeatureAsset.Images.Tab.push),
+        Image(asset: FeatureAsset.Images.Tab.mypage)
     ]
     
     public init() { }
@@ -39,13 +39,13 @@ public struct AlmaengiTabBar: View {
                     case 1:
                         ListView()
                     case 2:
-                        Image(asset: FeatureAsset.Images.home)
+                        Image(asset: FeatureAsset.Images.Tab.home)
                     case 3:
                         PushView()
                     case 4:
                         MypageView()
                     default:
-                        Image(asset: FeatureAsset.Images.home)
+                        Image(asset: FeatureAsset.Images.Tab.home)
                     }
                 }
                 VStack {

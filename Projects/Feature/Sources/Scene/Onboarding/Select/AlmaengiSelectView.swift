@@ -11,12 +11,12 @@ public struct AlmaengiSelectView: View {
     public init() {}
 
     private let image = [
-        Image(asset: FeatureAsset.Images.potato1),
-        Image(asset: FeatureAsset.Images.sweetpotato1),
-        Image(asset: FeatureAsset.Images.peach2),
-        Image(asset: FeatureAsset.Images.chestnut2),
-        Image(asset: FeatureAsset.Images.corn2),
-        Image(asset: FeatureAsset.Images.avocado2)
+        Image(asset: FeatureAsset.Images.Almaengi.Color.Potato.level1),
+        Image(asset: FeatureAsset.Images.Almaengi.Color.Sweetpotato.sweetpotato2),
+        Image(asset: FeatureAsset.Images.Almaengi.Color.Peach.level2),
+        Image(asset: FeatureAsset.Images.Almaengi.Color.Chestnut.level2),
+        Image(asset: FeatureAsset.Images.Almaengi.Color.Corn.level2),
+        Image(asset: FeatureAsset.Images.Almaengi.Color.Avocado.level2)
     ]
     
     private let almaengiNames = ["감자", "고구마", "복숭아", "밤", "옥수수", "아보카도"]

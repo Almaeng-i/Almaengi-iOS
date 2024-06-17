@@ -14,7 +14,7 @@ struct PlusButton: View {
                 .foregroundColor(.p3)
                 .frame(maxWidth: 60)
                 .frame(maxHeight: 60)
-            Image(asset: FeatureAsset.Images.plus)
+            Image(asset: FeatureAsset.Images.Icon.plus)
         }
     }
 }

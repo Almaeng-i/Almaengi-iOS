@@ -14,7 +14,7 @@ struct PushCell: View {
                 Circle()
                     .foregroundColor(.p1)
                     .frame(width: 60, height: 60)
-                Image(asset: FeatureAsset.Images.potatoPush)
+                Image(asset: FeatureAsset.Images.Push.potatoPush)
             }
             VStack(alignment: .leading, spacing: 0) {
                 AlmaengiText("내 알맹이가 Lv.2로 진화했어요!\n다음 단계를 향해 조금만 더 힘내볼까요?", textStyle: .descriptionMedium, color: .g9)
@@ -24,7 +24,7 @@ struct PushCell: View {
             Button(action: {
                 print("Hello")
             }, label: {
-                Image(asset: FeatureAsset.Images.grayKebapMenu)
+                Image(asset: FeatureAsset.Images.Icon.grayKebapMenu)
             })
         }
         .padding(.vertical, 10)

@@ -36,7 +36,7 @@ public struct EditPopup: View {
 struct EditButton: View {
     var body: some View {
         HStack(spacing: 8) {
-            Image(asset: FeatureAsset.Images.pen)
+            Image(asset: FeatureAsset.Images.Icon.pen)
             AlmaengiText("수정", textStyle: .bodyMedium, color: .g9)
             Spacer()
         }
@@ -48,7 +48,7 @@ struct EditButton: View {
 struct DeleteButton: View {
     var body: some View {
         HStack(spacing: 16) {
-            Image(asset: FeatureAsset.Images.delete)
+            Image(asset: FeatureAsset.Images.Icon.delete)
             AlmaengiText("삭제", textStyle: .bodyMedium, color: .systemRed)
             Spacer()
         }

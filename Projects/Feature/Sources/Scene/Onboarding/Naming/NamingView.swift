@@ -19,7 +19,7 @@ struct NamingView: View {
                     color: .g9
                 )
                 Spacer()
-                Image(asset: FeatureAsset.Images.sprout)
+                Image(asset: FeatureAsset.Images.Almaengi.Color.Sprout.sprout)
                     .resizable()
                     .frame(width: 64, height: 64)
             }

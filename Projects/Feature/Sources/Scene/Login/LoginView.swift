@@ -25,13 +25,13 @@ public struct LoginView: View {
                 .padding(.top, 128)
                 .frame(maxWidth: .infinity)
                 Spacer()
-                Image(asset: FeatureAsset.Images.sprout)
+                Image(asset: FeatureAsset.Images.Almaengi.Color.Sprout.sprout)
                     .resizable()
                     .frame(width: 222, height: 193)
                 Spacer()
                 VStack(spacing: 12) {
-                    Image(asset: FeatureAsset.Images.kakaoLogin)
-                    Image(asset: FeatureAsset.Images.appleLogin)
+                    Image(asset: FeatureAsset.Images.LoginButton.kakaoLogin)
+                    Image(asset: FeatureAsset.Images.LoginButton.appleLogin)
                 }
                 .padding(.bottom, 24)
             }

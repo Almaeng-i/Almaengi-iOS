@@ -13,13 +13,13 @@ public struct MainView: View {
     
     public var body: some View {
         ZStack {
-            Image(asset: FeatureAsset.Images.background2)
+            Image(asset: FeatureAsset.Images.Background.background2)
                 .resizable()
                 .scaledToFill()
                 .edgesIgnoringSafeArea(.all)
             VStack(alignment: .leading) {
                 HStack(spacing: 2) {
-                    Image(asset: FeatureAsset.Images.point)
+                    Image(asset: FeatureAsset.Images.Icon.point)
                     AlmaengiText("1181", textStyle: .bodyMedium, color: .p4)
                 }
                 .padding(.vertical, 8)
@@ -33,7 +33,7 @@ public struct MainView: View {
                         ZStack {
                             SpeechBubble()
                                 .offset(x: 98, y: -169)
-                            Image(asset: FeatureAsset.Images.sprout)
+                            Image(asset: FeatureAsset.Images.Almaengi.Color.Sprout.sprout)
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(height: 200)

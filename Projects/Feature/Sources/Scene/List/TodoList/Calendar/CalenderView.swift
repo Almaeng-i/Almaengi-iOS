@@ -50,13 +50,13 @@ struct CalenderView: View {
                 Button {
                     changeMonth(by: -1)
                 } label: {
-                    Image(asset: FeatureAsset.Images.leftArrow)
+                    Image(asset: FeatureAsset.Images.Icon.leftArrow)
                 }
                 .disabled(!canMoveToNextMonth())
                 Button {
                     changeMonth(by: 1)
                 } label: {
-                    Image(asset: FeatureAsset.Images.rightArrow)
+                    Image(asset: FeatureAsset.Images.Icon.rightArrow)
                 }
                 .disabled(!canMoveToNextMonth())
             }
@@ -133,7 +133,7 @@ private struct CellView: View {
   fileprivate var body: some View {
       ZStack {
           if clicked {
-              Image(asset: FeatureAsset.Images.todoPotato)
+              Image(asset: FeatureAsset.Images.Icon.todoPotato)
           }
           AlmaengiText(String(day), textStyle: .h3Medium, color: textColor)
               .padding(8)

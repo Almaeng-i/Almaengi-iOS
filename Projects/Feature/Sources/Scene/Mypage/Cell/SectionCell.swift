@@ -16,7 +16,7 @@ struct SectionCell: View {
             icon
             AlmaengiText(title, textStyle: .bodyMedium, color: .g9)
             Spacer()
-            Image(asset: FeatureAsset.Images.rightArrow)
+            Image(asset: FeatureAsset.Images.Icon.rightArrow)
         }
     }
 }

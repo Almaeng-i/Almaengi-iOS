@@ -11,12 +11,12 @@ public struct AlmaengiList: View {
     @State var selectedIndex: Int? = nil
     @Binding var selectedImageName: Image?
     private let images = [
-        Image(asset: FeatureAsset.Images.peach3),
-        Image(asset: FeatureAsset.Images.potato3),
-        Image(asset: FeatureAsset.Images.sweetpotato3),
-        Image(asset: FeatureAsset.Images.corn3),
-        Image(asset: FeatureAsset.Images.avocado3),
-        Image(asset: FeatureAsset.Images.chestnut3)
+        Image(asset: FeatureAsset.Images.Almaengi.Color.Peach.level3),
+        Image(asset: FeatureAsset.Images.Almaengi.Color.Potato.level3),
+        Image(asset: FeatureAsset.Images.Almaengi.Color.Sweetpotato.sweetpotato3),
+        Image(asset: FeatureAsset.Images.Almaengi.Color.Corn.level3),
+        Image(asset: FeatureAsset.Images.Almaengi.Color.Avocado.level3),
+        Image(asset: FeatureAsset.Images.Almaengi.Color.Chestnut.level3)
     ]
     
     public var body: some View {
