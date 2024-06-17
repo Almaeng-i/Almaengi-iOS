@@ -12,19 +12,19 @@ public struct AlmaengiTabBar: View {
     @State var selectedIndex = 0
     
     let selectedImage = [
-        Image(asset: FeatureAsset.Images.Tab.homeSelected),
-        Image(asset: FeatureAsset.Images.Tab.bucketlistSelected),
-        Image(asset: FeatureAsset.Images.Tab.shopSelected),
-        Image(asset: FeatureAsset.Images.Tab.pushSelected),
-        Image(asset: FeatureAsset.Images.Tab.mypageSelected)
+        Image(asset: FeatureAsset.Images.Tab.Selected.home),
+        Image(asset: FeatureAsset.Images.Tab.Selected.bucketlist),
+        Image(asset: FeatureAsset.Images.Tab.Selected.shop),
+        Image(asset: FeatureAsset.Images.Tab.Selected.push),
+        Image(asset: FeatureAsset.Images.Tab.Selected.mypage)
     ]
     
     let unSelectedImage = [
-        Image(asset: FeatureAsset.Images.Tab.home),
-        Image(asset: FeatureAsset.Images.Tab.bucketlist),
-        Image(asset: FeatureAsset.Images.Tab.shop),
-        Image(asset: FeatureAsset.Images.Tab.push),
-        Image(asset: FeatureAsset.Images.Tab.mypage)
+        Image(asset: FeatureAsset.Images.Tab.UnSelected.home),
+        Image(asset: FeatureAsset.Images.Tab.UnSelected.bucketlist),
+        Image(asset: FeatureAsset.Images.Tab.UnSelected.shop),
+        Image(asset: FeatureAsset.Images.Tab.UnSelected.push),
+        Image(asset: FeatureAsset.Images.Tab.UnSelected.mypage)
     ]
     
     public init() { }
@@ -39,13 +39,13 @@ public struct AlmaengiTabBar: View {
                     case 1:
                         ListView()
                     case 2:
-                        Image(asset: FeatureAsset.Images.Tab.home)
+                        Image(asset: FeatureAsset.Images.Tab.UnSelected.home)
                     case 3:
                         PushView()
                     case 4:
                         MypageView()
                     default:
-                        Image(asset: FeatureAsset.Images.Tab.home)
+                        Image(asset: FeatureAsset.Images.Tab.UnSelected.home)
                     }
                 }
                 VStack {

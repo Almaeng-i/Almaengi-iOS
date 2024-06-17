@@ -37,6 +37,7 @@ struct NamingView: View {
             }
             .padding(.vertical, 20)
         }
+        .AlmaengiNavBarItems(title: "알맹이 이름", backButtonHidden: false, backgroundColor: .clear)
         .padding(.horizontal, 24)
     }
 }

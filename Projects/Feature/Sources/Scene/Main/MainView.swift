@@ -13,7 +13,7 @@ public struct MainView: View {
     
     public var body: some View {
         ZStack {
-            Image(asset: FeatureAsset.Images.Background.background2)
+            Image(asset: FeatureAsset.Images.Background.summer)
                 .resizable()
                 .scaledToFill()
                 .edgesIgnoringSafeArea(.all)
