@@ -17,7 +17,7 @@ public struct CollectionView: View {
         VStack {
             VStack(spacing: 0) {
                 Spacer()
-                Image(asset: FeatureAsset.Images.potato3)
+                Image(asset: FeatureAsset.Images.Almaengi.Color.Potato.level3)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 195)

@@ -33,7 +33,7 @@ extension AlmaengiNavBarView {
         Button {
             presentationMode.wrappedValue.dismiss()
         } label: {
-            Image(asset: FeatureAsset.Images.leftArrow)
+            Image(asset: FeatureAsset.Images.Icon.leftArrow)
         }
     }
     

@@ -8,17 +8,15 @@
 import SwiftUI
 
 struct PotatoView: View {
+    private let potatoImage = Image(asset: FeatureAsset.Images.Almaengi.Color.Potato.level1)
+    
     var body: some View {
         HStack(spacing: 8) {
-            Image(asset: FeatureAsset.Images.potato1)
-                .resizable()
-                .frame(width: 16, height: 16)
-            Image(asset: FeatureAsset.Images.potato1)
-                .resizable()
-                .frame(width: 16, height: 16)
-            Image(asset: FeatureAsset.Images.potato1)
-                .resizable()
-                .frame(width: 16, height: 16)
+            ForEach(0..<3) { _ in
+                potatoImage
+                    .resizable()
+                    .frame(width: 16, height: 16)
+            }
         }
     }
 }

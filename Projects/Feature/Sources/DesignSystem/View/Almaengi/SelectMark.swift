@@ -15,7 +15,7 @@ struct SelectMark: View {
                 .frame(width: 24, height: 24)
                 .cornerRadius(8, corners: .topLeft)
                 .cornerRadius(8, corners: .bottomRight)
-            Image(asset: FeatureAsset.Images.check)
+            Image(asset: FeatureAsset.Images.Icon.check)
         }
     }
 }

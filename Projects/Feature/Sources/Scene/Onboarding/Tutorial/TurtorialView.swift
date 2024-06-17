@@ -19,7 +19,7 @@ struct TutorialView: View {
             .padding(.vertical, 20)
             HStack {
                 Spacer()
-                Image(asset: FeatureAsset.Images.todoList)
+                Image(asset: FeatureAsset.Images.Etc.todoList)
                     .resizable()
                     .frame(width: 238, height: 238)
                     .padding(.vertical, 84)

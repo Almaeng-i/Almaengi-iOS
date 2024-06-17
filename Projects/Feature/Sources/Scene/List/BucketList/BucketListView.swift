@@ -19,7 +19,7 @@ public struct BucketListView: View {
                 Button {
                     print("버킷리스트 추가")
                 } label: {
-                    Image(asset: FeatureAsset.Images.plus)
+                    Image(asset: FeatureAsset.Images.Icon.plus)
                 }
             }
             VStack {
