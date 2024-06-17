@@ -11,7 +11,7 @@ struct NamingView: View {
     @State var name: String
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             HStack(spacing: 0) {
                 AlmaengiText(
                     "반가워요! 내 알맹이의\n이름을 지어볼까요?",
@@ -21,7 +21,7 @@ struct NamingView: View {
                 Spacer()
                 Image(asset: FeatureAsset.Images.Almaengi.Color.Sprout.sprout)
                     .resizable()
-                    .frame(width: 64, height: 64)
+                    .frame(width: 60, height: 60)
             }
             .padding(.vertical, 20)
             AlmaengiText("이름", textStyle: .descriptionBold, color: .g9, isFixedSize: true)
