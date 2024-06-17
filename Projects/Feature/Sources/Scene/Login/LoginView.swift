@@ -30,8 +30,8 @@ public struct LoginView: View {
                     .frame(width: 222, height: 193)
                 Spacer()
                 VStack(spacing: 12) {
-                    Image(asset: FeatureAsset.Images.LoginButton.kakaoLogin)
-                    Image(asset: FeatureAsset.Images.LoginButton.appleLogin)
+                    Image(asset: FeatureAsset.Images.LoginButton.kakao)
+                    Image(asset: FeatureAsset.Images.LoginButton.apple)
                 }
                 .padding(.bottom, 24)
             }

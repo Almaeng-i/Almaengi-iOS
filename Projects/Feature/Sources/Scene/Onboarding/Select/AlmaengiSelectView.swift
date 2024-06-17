@@ -12,7 +12,7 @@ public struct AlmaengiSelectView: View {
 
     private let image = [
         Image(asset: FeatureAsset.Images.Almaengi.Color.Potato.level1),
-        Image(asset: FeatureAsset.Images.Almaengi.Color.Sweetpotato.sweetpotato2),
+        Image(asset: FeatureAsset.Images.Almaengi.Color.Sweetpotato.level2),
         Image(asset: FeatureAsset.Images.Almaengi.Color.Peach.level2),
         Image(asset: FeatureAsset.Images.Almaengi.Color.Chestnut.level2),
         Image(asset: FeatureAsset.Images.Almaengi.Color.Corn.level2),
