@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ProfileImageView: View {
+    @State private var openPhoto = false
+    @State private var image = UIImage()
+    
     var body: some View {
         VStack(alignment: .leading) {
             AlmaengiText("프로필 이미지를 등록해주세요.", textStyle: .titleBold, color: .g9)
@@ -15,9 +18,15 @@ struct ProfileImageView: View {
             HStack {
                 Spacer()
                 VStack(spacing: 20) {
-                    ProfileView(size: 100)
+                    Image(uiImage: self.image)
+                        .resizable()
+                        .frame(width: 100, height: 100)
+                        .cornerRadius(50)
+                        .sheet(isPresented: $openPhoto, content: {
+                            ImagePicker(sourceType: .photoLibrary, selectedImage: self.$image)
+                        })
                     Button(action: {
-                        print("이미지 등록")
+                        self.openPhoto = true
                     }, label: {
                         ZStack {
                             Rectangle()
@@ -31,7 +40,7 @@ struct ProfileImageView: View {
                 Spacer()
             }
             Spacer()
-            AlmaengiNavLink(destination: TutorialView()) {
+            AlmaengiNavLink(destination: ProfileIntroduce()) {
                 AlmaengiButton(title: "다음")
             }
             .padding(.bottom, 16)
@@ -40,7 +49,7 @@ struct ProfileImageView: View {
                 Button(action: {
                     print("다음에 하기")
                 }, label: {
-                    AlmaengiNavLink(destination: TutorialView()) {
+                    AlmaengiNavLink(destination: ProfileIntroduce()) {
                         AlmaengiText("다음에 할게요", textStyle: .bodyBold, color: .p3)
                     }
                 })

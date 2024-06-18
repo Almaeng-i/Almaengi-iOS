@@ -1,21 +1,20 @@
 //
-//  TurtorialView.swift
+//  TutorialView1.swift
 //  Feature
 //
-//  Created by 새미 on 5/24/24.
+//  Created by 새미 on 6/18/24.
 //
 
 import SwiftUI
 
-struct TutorialView: View {
+struct TutorialView1: View {
     var body: some View {
         VStack(alignment: .leading) {
             AlmaengiText(
-                "준비완료! 투두리스트를 달성해서\n내 알맹이를 성장시켜 보세요.",
+                "알맹이 키우기 준비완료!\n일간 목표는 1%,월간 목표는 5%\n만큼 내 알맹이가 성장해요",
                 textStyle: .titleBold,
                 color: .g9
             )
-            .multilineTextAlignment(.leading)
             .padding(.vertical, 20)
             HStack {
                 Spacer()
@@ -26,11 +25,12 @@ struct TutorialView: View {
                 Spacer()
             }
             Spacer()
-            AlmaengiNavLink(destination: AlmaengiTabBar()) {
+            AlmaengiNavLink(destination: TutorialView2()) {
                 AlmaengiButton(title: "다음")
             }
             .padding(.vertical, 20)
         }
         .padding(.horizontal, 24)
+        .AlmaengiNavBarItems(title: "튜토리얼", backButtonHidden: false, backgroundColor: .clear)
     }
 }
