@@ -14,7 +14,7 @@ struct ProgressBar: View {
                 .fill(Color.p1)
                 .frame(width: 154, height: 11)
             RoundedRectangle(cornerRadius: 168)
-                .fill(Color.p4)
+                .fill(Color.p3)
                 .frame(width: 108, height: 11)
         }
     }
