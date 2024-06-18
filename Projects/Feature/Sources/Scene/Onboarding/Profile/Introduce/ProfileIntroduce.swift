@@ -12,7 +12,7 @@ struct ProfileIntroduce: View {
         VStack(alignment: .leading) {
             AlmaengiText("김새미님에 대해 소개해주세요!", textStyle: .titleBold, color: .g9)
                 .padding(.vertical, 20)
-            AlmaengiNavLink(destination: TutorialView()) {
+            AlmaengiNavLink(destination: TutorialView1()) {
                 AlmaengiButton(title: "다음")
             }
             .padding(.bottom, 16)
@@ -21,7 +21,7 @@ struct ProfileIntroduce: View {
                 Button(action: {
                     print("다음에 하기")
                 }, label: {
-                    AlmaengiNavLink(destination: TutorialView()) {
+                    AlmaengiNavLink(destination: TutorialView1()) {
                         AlmaengiText("다음에 할게요", textStyle: .bodyBold, color: .p3)
                     }
                 })
