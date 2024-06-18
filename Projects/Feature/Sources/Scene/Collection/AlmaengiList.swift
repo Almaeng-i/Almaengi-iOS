@@ -13,7 +13,7 @@ public struct AlmaengiList: View {
     private let images = [
         Image(asset: FeatureAsset.Images.Almaengi.Color.Peach.level3),
         Image(asset: FeatureAsset.Images.Almaengi.Color.Potato.level3),
-        Image(asset: FeatureAsset.Images.Almaengi.Color.Sweetpotato.sweetpotato3),
+        Image(asset: FeatureAsset.Images.Almaengi.Color.Sweetpotato.level3),
         Image(asset: FeatureAsset.Images.Almaengi.Color.Corn.level3),
         Image(asset: FeatureAsset.Images.Almaengi.Color.Avocado.level3),
         Image(asset: FeatureAsset.Images.Almaengi.Color.Chestnut.level3)

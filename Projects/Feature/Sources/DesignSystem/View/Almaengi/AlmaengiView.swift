@@ -18,14 +18,11 @@ struct AlmaengiView: View {
             VStack(alignment: .center, spacing: 8) {
                 image
                     .resizable()
-                    .frame(width: 80, height: 80)
-                    .padding(.top, 11)
-                    .padding(.horizontal, 15)
+                    .frame(width: 76, height: 76)
                 AlmaengiText(name, textStyle: .bodyBold, color: .p2)
-                    .padding(.bottom, 11)
-                    .padding(.horizontal, 15)
-                    .padding(.vertical, 2)
             }
+            .padding(.vertical, 11)
+            .padding(.horizontal, 15)
             .background(Color.init(red: 0.97, green: 0.95, blue: 0.93))
             .overlay(
                 RoundedRectangle(cornerRadius: 8)

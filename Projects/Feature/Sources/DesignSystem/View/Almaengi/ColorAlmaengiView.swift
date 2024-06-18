@@ -21,7 +21,7 @@ struct ColorAlmaengiView: View {
             return .p1
         } else if image == Image(asset: FeatureAsset.Images.Almaengi.Color.Avocado.level3) {
             return .subGreen
-        } else if image == Image(asset: FeatureAsset.Images.Almaengi.Color.Sweetpotato.sweetpotato3) {
+        } else if image == Image(asset: FeatureAsset.Images.Almaengi.Color.Sweetpotato.level3) {
             return .subPurple
         } else {
             return .g2

@@ -41,6 +41,7 @@ struct ProfileSettingView: View {
             }
             .padding(.bottom, 20)
         }
+        .AlmaengiNavBarItems(title: "프로필 등록", backButtonHidden: false, backgroundColor: .clear)
         .padding(.horizontal, 24)
     }
 }

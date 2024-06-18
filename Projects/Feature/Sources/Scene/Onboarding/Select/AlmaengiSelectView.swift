@@ -12,7 +12,7 @@ public struct AlmaengiSelectView: View {
 
     private let image = [
         Image(asset: FeatureAsset.Images.Almaengi.Color.Potato.level1),
-        Image(asset: FeatureAsset.Images.Almaengi.Color.Sweetpotato.sweetpotato2),
+        Image(asset: FeatureAsset.Images.Almaengi.Color.Sweetpotato.level1),
         Image(asset: FeatureAsset.Images.Almaengi.Color.Peach.level2),
         Image(asset: FeatureAsset.Images.Almaengi.Color.Chestnut.level2),
         Image(asset: FeatureAsset.Images.Almaengi.Color.Corn.level2),
@@ -39,7 +39,7 @@ public struct AlmaengiSelectView: View {
                                 name: almaengiNames[index], index: index, selectedIndex: $selectedIndex)
                         }
                     }
-                    HStack {
+                    HStack(spacing: 8) {
                         ForEach(3..<6) { index in
                             AlmaengiView(
                                 image: image[index],
@@ -54,8 +54,8 @@ public struct AlmaengiSelectView: View {
                 }
                 .padding(.vertical, 20)
             }
-            .padding(.horizontal, 24)
             .AlmaengiNavBarItems(title: "알맹이 선택", backButtonHidden: true, backgroundColor: .clear)
+            .padding(.horizontal, 24)
         }
     }
 }
