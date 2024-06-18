@@ -32,7 +32,7 @@ struct NamingView: View {
                 helpMessage: "알맹이 이름은 20자까지 지을 수 있어요."
             )
             Spacer()
-            AlmaengiNavLink(destination: ProfileSettingView(text: "")) {
+            AlmaengiNavLink(destination: ProfileImageView()) {
                 AlmaengiButton(title: "다음")
             }
             .padding(.vertical, 20)
