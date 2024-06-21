@@ -13,32 +13,30 @@ public struct ShopView: View {
     
     public var body: some View {
         ScrollView {
-            VStack {
+            VStack(alignment: .leading) {
                 AlmaengiText("상점", textStyle: .titleBold, color: .black)
+                    .padding(.vertical, 14)
                 HStack {
-                    Text(countText)
-                        .foregroundColor(.g8)
-                        .font(Font(FeatureFontFamily.Pretendard.medium.font(size: 16)))
-                    AlmaengiText("전체", textStyle: .bodyMedium, color: .g8)
-                    Button(action: {
-                        print("")
-                    }, label: {
-                        Image(asset: FeatureAsset.Images.downArrow)
-                    })
+                    HStack(spacing: 2) {
+                        Image(asset: FeatureAsset.Images.Icon.point)
+                        AlmaengiText("3423", textStyle: .bodyMedium, color: .p4)
+                    }
+                    Spacer()
+                    HStack(spacing: 4) {
+                        AlmaengiText("전체", textStyle: .bodyMedium, color: .g8)
+                        Button(action: {
+                            print("")
+                        }, label: {
+                            Image(asset: FeatureAsset.Images.Icon.downArrow)
+                                .resizable()
+                                .frame(width: 16, height: 16)
+                        })
+                    }
+                
                 }
                 ShopCell(name: "안경", point: 34)
             }
+            .padding(.horizontal, 24)
         }
     }
 }
-
-extension ShopView {
-    @available(iOS 15, *)
-    var countText: AttributedString {
-        var text: AttributedString = "총 18개"
-        let colorRange = text.range(of: "18")!
-        text[colorRange].foregroundColor = .p3
-        return text
-    }
-}
-

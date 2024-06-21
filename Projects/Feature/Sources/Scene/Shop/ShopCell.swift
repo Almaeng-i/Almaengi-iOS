@@ -15,19 +15,12 @@ struct ShopCell: View {
         VStack {
             ZStack {
                 Rectangle()
-                    .cornerRadius(9)
+                    .cornerRadius(8)
                     .foregroundColor(.p1)
+                    .frame(width: 167, height: 138)
             }
             VStack(alignment: .leading) {
-                HStack {
-                    AlmaengiText(name, textStyle: .bodyMedium, color: .g9)
-                    Spacer()
-                    Button(action: {
-                        print("")
-                    }, label: {
-                        Image(asset: FeatureAsset.Images.save)
-                    })
-                }
+                AlmaengiText(name, textStyle: .bodyMedium, color: .g9)
                 AlmaengiText("\(point)p", textStyle: .bodyMedium, color: .g8)
             }
         }
