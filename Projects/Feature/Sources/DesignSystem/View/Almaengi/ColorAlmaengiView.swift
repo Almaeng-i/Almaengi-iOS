@@ -11,17 +11,17 @@ struct ColorAlmaengiView: View {
     var index: Int
     var image: Image
     var backgroundColor: Color {
-        if image == Image(asset: FeatureAsset.Images.peach3) {
+        if image == Image(asset: FeatureAsset.Images.Almaengi.Color.Peach.level3) {
             return .subPink
-        } else if image == Image(asset: FeatureAsset.Images.chestnut3) {
+        } else if image == Image(asset: FeatureAsset.Images.Almaengi.Color.Chestnut.level3) {
             return .subOrange
-        } else if image == Image(asset: FeatureAsset.Images.corn3) {
+        } else if image == Image(asset: FeatureAsset.Images.Almaengi.Color.Corn.level3) {
             return .subYellow
-        } else if image == Image(asset: FeatureAsset.Images.potato3) {
+        } else if image == Image(asset: FeatureAsset.Images.Almaengi.Color.Potato.level3) {
             return .p1
-        } else if image == Image(asset: FeatureAsset.Images.avocado3) {
+        } else if image == Image(asset: FeatureAsset.Images.Almaengi.Color.Avocado.level3) {
             return .subGreen
-        } else if image == Image(asset: FeatureAsset.Images.sweetpotato3) {
+        } else if image == Image(asset: FeatureAsset.Images.Almaengi.Color.Sweetpotato.level3) {
             return .subPurple
         } else {
             return .g2

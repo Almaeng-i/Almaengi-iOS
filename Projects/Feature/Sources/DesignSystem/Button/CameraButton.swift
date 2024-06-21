@@ -15,7 +15,7 @@ struct CameraButton: View {
             Circle()
                 .foregroundColor(.p2)
                 .frame(width: size, height: size)
-            Image(asset: FeatureAsset.Images.camera)
+            Image(asset: FeatureAsset.Images.Icon.camera)
                 .resizable()
                 .frame(width: ((size / 2) + 2), height: ((size / 2) + 2))
         }

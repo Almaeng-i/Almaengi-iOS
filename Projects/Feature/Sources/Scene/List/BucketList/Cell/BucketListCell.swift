@@ -16,7 +16,7 @@ public struct BucketListCell: View {
     
     public var body: some View {
         HStack(spacing: 16) {
-            isAchieve ? Image(asset: FeatureAsset.Images.lightCheck) : Image(asset: FeatureAsset.Images.defaultCheck)
+            isAchieve ? Image(asset: FeatureAsset.Images.Check.lightCheck) : Image(asset: FeatureAsset.Images.Check.defaultCheck)
             VStack(alignment: .leading, spacing: 0) {
                 AlmaengiText(
                     title,
@@ -33,7 +33,7 @@ public struct BucketListCell: View {
             Button {
                 print("수정 또는 삭제")
             } label: {
-                isAchieve ? Image(asset: FeatureAsset.Images.whiteKebapMenu) : Image(asset: FeatureAsset.Images.grayKebapMenu)
+                isAchieve ? Image(asset: FeatureAsset.Images.Icon.whiteKebapMenu) : Image(asset: FeatureAsset.Images.Icon.grayKebapMenu)
             }
         }
         .padding(.vertical, 14)

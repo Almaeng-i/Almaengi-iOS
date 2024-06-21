@@ -20,6 +20,11 @@ struct AlmaengiNavBarView: View {
                 backButton
             }
             Spacer()
+            if showBackButton == false {
+                Rectangle()
+                    .frame(width: 28, height: 1)
+                    .foregroundColor(.clear)
+            }
             titleSection
             Spacer()
         }
@@ -33,7 +38,7 @@ extension AlmaengiNavBarView {
         Button {
             presentationMode.wrappedValue.dismiss()
         } label: {
-            Image(asset: FeatureAsset.Images.leftArrow)
+            Image(asset: FeatureAsset.Images.Icon.leftArrow)
         }
     }
     

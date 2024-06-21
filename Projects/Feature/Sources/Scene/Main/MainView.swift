@@ -12,43 +12,52 @@ public struct MainView: View {
     public init() { }
     
     public var body: some View {
-        ZStack {
-            Image(asset: FeatureAsset.Images.background2)
-                .resizable()
-                .scaledToFill()
-                .edgesIgnoringSafeArea(.all)
-            VStack(alignment: .leading) {
-                HStack(spacing: 2) {
-                    Image(asset: FeatureAsset.Images.point)
-                    AlmaengiText("1181", textStyle: .bodyMedium, color: .p4)
-                }
-                .padding(.vertical, 8)
-                .padding(.top, 32)
-                AlmaengiText("D+123", textStyle: .titleBold, color: Color(red: 0.38, green: 0.27, blue: 0.18))
-                    .padding(.vertical, 20)
+        VStack(alignment: .leading) {
+            Text(mainText)
+                .multilineTextAlignment(.leading)
+                .lineSpacing(4)
+                .padding(.vertical, 20)
+                .foregroundColor(.g9)
+                .font(Font(FeatureFontFamily.Pretendard.bold.font(size: 24)))
+            Spacer()
+            HStack {
                 Spacer()
-                HStack {
-                    Spacer()
-                    VStack(spacing: 23) {
-                        ZStack {
-                            SpeechBubble()
-                                .offset(x: 98, y: -169)
-                            Image(asset: FeatureAsset.Images.sprout)
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(height: 200)
-                        }
+                VStack(spacing: 0){
+                    ZStack {
+                        SpeechBubble()
+                            .offset(x: 98, y: -130)
+                        Image(asset: FeatureAsset.Images.Almaengi.Color.Sprout.sprout)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(height: 230)
+                    }
+                    VStack(spacing: 28) {
                         AlmaengiText("새미(Lv.1)", textStyle: .h2Bold, color: .p4)
-                        HStack(spacing: 8) {
+                        VStack(spacing: 8) {
                             ProgressBar()
-                            AlmaengiText("80%", textStyle: .bodyBold, color: .p4)
+                            ZStack {
+                                Image(asset: FeatureAsset.Images.Etc.colorSpeechBubble)
+                                AlmaengiText("60%", textStyle: .captionMedium, color: .white)
+                                    .padding(.top, 9)
+                            }
                         }
                     }
-                    Spacer()
                 }
                 Spacer()
             }
-            .padding(.horizontal, 24)
+            Spacer()
         }
+        .padding(.horizontal, 24)
+        .background(Image(asset: FeatureAsset.Images.Background.summer).resizable().ignoresSafeArea(.container).aspectRatio(contentMode: .fill))
+    }
+}
+
+extension MainView {
+    @available(iOS 15, *)
+    var mainText: AttributedString {
+        var text: AttributedString = "김새미님,\n오늘도 아자아자 화이팅!"
+        let colorRange = text.range(of: "김새미")!
+        text[colorRange].foregroundColor = .p4
+        return text
     }
 }

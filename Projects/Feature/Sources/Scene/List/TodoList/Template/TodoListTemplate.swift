@@ -22,7 +22,7 @@ public struct TodoListTemplate: View {
                 Button {
                     print("투두리스트 추가")
                 } label: {
-                    Image(asset: FeatureAsset.Images.plus)
+                    Image(asset: FeatureAsset.Images.Icon.plus)
                 }
             }
             VStack {
