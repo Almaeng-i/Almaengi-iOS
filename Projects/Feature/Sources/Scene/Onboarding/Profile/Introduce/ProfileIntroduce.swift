@@ -33,3 +33,30 @@ struct ProfileIntroduce: View {
         .padding(.horizontal, 24)
     }
 }
+
+private struct TextWritingView: View {
+    
+    @State var text: String = ""
+    
+    private var registerButtonDisabled: Bool {
+        text.isEmpty
+    }
+    private var borderColor: Color {
+        text.isEmpty ? .g4 : .p4
+    }
+    
+    var body: some View {
+        VStack {
+            AlmaengiText("한 줄 소개", textStyle: .descriptionMedium, color: .g9)
+            ZStack {
+                AlmaengiTextView(
+                    text: $text, 
+                    textFont: .systemFont(ofSize: 1, weight: .medium),
+                    cornerRadius: 8,
+                    borderWidth: 1
+                    )
+            }
+        }
+    }
+    
+}
