@@ -38,7 +38,7 @@ public struct AlmaengiTabBar: View {
                 case 1:
                     ListView()
                 case 2:
-                    Image(asset: FeatureAsset.Images.Tab.UnSelected.home)
+                    ShopView()
                 case 3:
                     PushView()
                 case 4:

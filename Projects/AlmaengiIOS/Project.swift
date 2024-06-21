@@ -12,6 +12,9 @@ let project = Project(
             infoPlist: .extendingDefault(
                 with: [
                     "UILaunchStoryboardName": "LaunchScreen.storyboard",
+                    "CFBundleDisplayName": "알맹이",
+                    "UIUserInterfaceStyle": "Light",
+                    "DEVELOPMENT_TEAM": "saemi kim"
                 ]
             ),
             sources: ["Sources/**"],
