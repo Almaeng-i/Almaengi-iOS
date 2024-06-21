@@ -32,9 +32,23 @@ public struct ShopView: View {
                                 .frame(width: 16, height: 16)
                         })
                     }
-                
                 }
-                ShopCell(name: "안경", point: 34)
+                .padding(.vertical, 4)
+                VStack(spacing: 11) {
+                    HStack(spacing: 11) {
+                        ShopCell(image: Image(asset: FeatureAsset.Images.Items.Hair.ribbon), name: "리본", point: 20)
+                        ShopCell(image: Image(asset: FeatureAsset.Images.Items.Hair.ribbon), name: "리본", point: 20)
+                    }
+                    HStack(spacing: 11) {
+                        ShopCell(image: Image(asset: FeatureAsset.Images.Items.Hair.ribbon), name: "리본", point: 20)
+                        ShopCell(image: Image(asset: FeatureAsset.Images.Items.Hair.ribbon), name: "리본", point: 20)
+                    }
+                    HStack(spacing: 11) {
+                        ShopCell(image: Image(asset: FeatureAsset.Images.Items.Hair.ribbon), name: "리본", point: 20)
+                        ShopCell(image: Image(asset: FeatureAsset.Images.Items.Hair.ribbon), name: "리본", point: 20)
+                    }
+                }
+                .padding(.vertical, 8)
             }
             .padding(.horizontal, 24)
         }
