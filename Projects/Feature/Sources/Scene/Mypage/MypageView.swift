@@ -9,12 +9,13 @@ import SwiftUI
 
 public struct MypageView: View {
     private let sectionTitle: [String] = ["알맹이 설정", "개인정보 설정"]
-    private let title: [String] = ["내 알맹이", "수집한 알맹이", "로그아웃", "회원탈퇴", "프로필 설정"]
+    private let title: [String] = ["수집한 알맹이", "알맹이 토튜리얼", "로그아웃", "회원탈퇴", "알람 설정", "프로필 설정"]
     private let icon = [
-        Image(asset: FeatureAsset.Images.Icon.nuts),
         Image(asset: FeatureAsset.Images.Icon.box),
+        Image(asset: FeatureAsset.Images.Icon.book),
         Image(asset: FeatureAsset.Images.Icon.logout),
         Image(asset: FeatureAsset.Images.Icon.signout),
+        Image(asset: FeatureAsset.Images.Icon.bell),
         Image(asset: FeatureAsset.Images.Icon.setting),
     ]
     
@@ -44,7 +45,7 @@ public struct MypageView: View {
             .padding(.vertical, 16)
             SectionHeader(title: sectionTitle[1])
             VStack(spacing: 20) {
-                ForEach(2..<5) { index in
+                ForEach(2..<6) { index in
                     SectionCell(icon: icon[index], title: title[index])
                 }
             }
