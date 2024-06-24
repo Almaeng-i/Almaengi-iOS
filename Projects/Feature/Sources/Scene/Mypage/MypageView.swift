@@ -9,7 +9,7 @@ import SwiftUI
 
 public struct MypageView: View {
     private let sectionTitle: [String] = ["알맹이 설정", "개인정보 설정"]
-    private let title: [String] = ["수집한 알맹이", "알맹이 토튜리얼", "로그아웃", "회원탈퇴", "알람 설정", "프로필 설정"]
+    private let title: [String] = ["수집한 알맹이", "알맹이 튜토리얼", "로그아웃", "회원탈퇴", "알람 설정", "프로필 설정"]
     private let icon = [
         Image(asset: FeatureAsset.Images.Icon.box),
         Image(asset: FeatureAsset.Images.Icon.book),
