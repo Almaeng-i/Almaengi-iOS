@@ -11,7 +11,7 @@ struct TutorialView2: View {
     var body: some View {
         VStack(alignment: .leading) {
             AlmaengiText(
-                "버킷리스트는 한 개를 이룰때마다\n10포인트씩 지급돼요! 얻은 포인트는\n상점에서 사용할 수 있어요.",
+                "버킷리스트는 한 개를 이룰때마다\n10포인트씩 지급돼요! 포인트는\n상점에서 사용할 수 있어요.",
                 textStyle: .titleBold,
                 color: .g9
             )

@@ -26,7 +26,7 @@ struct ShopCell: View {
             }
             VStack(spacing: 0) {
                 AlmaengiText(name, textStyle: .bodyMedium, color: .g9)
-                AlmaengiText("\(point)p", textStyle: .bodyMedium, color: .g8)
+                AlmaengiText("\(point)p", textStyle: .h2Medium, color: .p2)
             }
             .padding(.vertical, 8)
             .padding(.horizontal, 4)

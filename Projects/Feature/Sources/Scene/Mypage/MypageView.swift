@@ -39,7 +39,7 @@ public struct MypageView: View {
             VStack(spacing: 20) {
                 SectionCell(icon: icon[0], title: title[0])
                 AlmaengiNavLink(destination: CollectionView()) {
-                    SectionCell(icon: icon[1], title: title[1])
+                    SectionCell(icon: icon[0], title: title[0])
                 }
             }
             .padding(.vertical, 16)

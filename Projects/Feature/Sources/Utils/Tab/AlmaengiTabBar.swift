@@ -11,20 +11,40 @@ public struct AlmaengiTabBar: View {
     
     @State var selectedIndex = 0
     
-    let selectedImage = [
-        Image(asset: FeatureAsset.Images.Tab.Selected.home),
-        Image(asset: FeatureAsset.Images.Tab.Selected.bucketlist),
-        Image(asset: FeatureAsset.Images.Tab.Selected.shop),
-        Image(asset: FeatureAsset.Images.Tab.Selected.push),
-        Image(asset: FeatureAsset.Images.Tab.Selected.mypage)
-    ]
+    private var iconColors: [Color] {
+        switch selectedIndex {
+        case 0:
+            return [
+                Color(red: 0.32, green: 0.24, blue: 0.16),
+                .white,.white,.white,.white
+            ]
+        case 1:
+            return [
+                .g3,.g9,.g3,.g3,.g3
+            ]
+        case 2:
+            return [
+                .g3,.g3,.g9,.g3,.g3
+            ]
+        case 3:
+            return [
+                .g3,.g3,.g3,.g9,.g3
+            ]
+        case 4:
+            return [
+                .g3,.g3,.g3,.g3,.g9
+            ]
+        default:
+            return Array(repeating: Color.white, count: icon.count)
+        }
+    }
     
-    let unSelectedImage = [
-        Image(asset: FeatureAsset.Images.Tab.UnSelected.home),
-        Image(asset: FeatureAsset.Images.Tab.UnSelected.bucketlist),
-        Image(asset: FeatureAsset.Images.Tab.UnSelected.shop),
-        Image(asset: FeatureAsset.Images.Tab.UnSelected.push),
-        Image(asset: FeatureAsset.Images.Tab.UnSelected.mypage)
+    private let icon = [
+        Image(asset: FeatureAsset.Images.Tab.home),
+        Image(asset: FeatureAsset.Images.Tab.list),
+        Image(asset: FeatureAsset.Images.Tab.shop),
+        Image(asset: FeatureAsset.Images.Tab.notice),
+        Image(asset: FeatureAsset.Images.Tab.my)
     ]
     
     public init() { }
@@ -44,14 +64,17 @@ public struct AlmaengiTabBar: View {
                 case 4:
                     MypageView()
                 default:
-                    Image(asset: FeatureAsset.Images.Tab.UnSelected.home)
+                    Image(asset: FeatureAsset.Images.Tab.home)
                 }
             }
+            
             VStack {
                 Spacer()
                 HStack(spacing: 0) {
-                    ForEach(selectedImage.indices, id: \.self) { index in
-                        (selectedIndex == index ? AnyView(selectedImage[index]) : AnyView(unSelectedImage[index]))
+                    ForEach(icon.indices, id: \.self) { index in
+                        icon[index]
+                            .renderingMode(.template)
+                            .foregroundColor(self.iconColors[index])
                             .frame(width: 36, height: 36)
                             .padding(.horizontal,
                                      ((UIScreen.main.bounds.width) * 0.05)
