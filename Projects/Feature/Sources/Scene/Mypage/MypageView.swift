@@ -26,7 +26,9 @@ public struct MypageView: View {
             AlmaengiText("마이페이지", textStyle: .titleBold, color: .black)
                 .padding(.vertical, 14)
             HStack {
-                ProfileView(size: 56)
+                Image(asset: FeatureAsset.Images.Icon.profileView)
+                    .resizable()
+                    .frame(width: 56, height: 56)
                 VStack(alignment: .leading, spacing: 0) {
                     AlmaengiText("김새미", textStyle: .h3Bold, color: .g9)
                     AlmaengiText("한 줄 소개 작성 부분입니다.", textStyle: .descriptionMedium, color: .g5)
@@ -37,10 +39,11 @@ public struct MypageView: View {
             .padding(.vertical, 12)
             SectionHeader(title: sectionTitle[0])
             VStack(spacing: 20) {
-                SectionCell(icon: icon[0], title: title[0])
                 AlmaengiNavLink(destination: CollectionView()) {
                     SectionCell(icon: icon[0], title: title[0])
                 }
+                SectionCell(icon: icon[1], title: title[1])
+                
             }
             .padding(.vertical, 16)
             SectionHeader(title: sectionTitle[1])
