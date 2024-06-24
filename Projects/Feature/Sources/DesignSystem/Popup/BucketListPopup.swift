@@ -21,7 +21,7 @@ public struct BucketListPopup: View {
         VStack(alignment: .leading, spacing: 12) {
             AlmaengiText("버킷리스트 입력", textStyle: .h3Bold, color: .g9)
             AlmaengiTextField("새미님의 버킷리스트를 입력해주세요.", text: $bucketList, isError: false)
-            AlmaengiTextEditor(text: $content)
+            
             Spacer()
             HStack(spacing: 8) {
                 Spacer()
