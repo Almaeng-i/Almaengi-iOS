@@ -2,101 +2,41 @@
 //  AlmaengiTextView.swift
 //  Feature
 //
-//  Created by 새미 on 6/18/24.
+//  Created by 새미 on 6/25/24.
 //
 
 import SwiftUI
-import UIKit
 
-// MARK: - Almaengi Text View
-public struct AlmaengiTextView: UIViewRepresentable {
-    @Binding var text: String
+public struct AlmaengiTextView: View {
 
-    var textFont: UIFont
-    var textColor: UIColor = .black
-    var textLimit: Int = 30
-    var cornerRadius: CGFloat? = nil
-    var borderWidth: CGFloat? = nil
-    var borderColor: CGColor? = nil
-    var isScrollEnabled: Bool = true
-    var isEditable: Bool = true
-    var isUserInteractionEnabled: Bool = true
-    var lineFragmentPadding: CGFloat = 0
-    var textContainerInset: UIEdgeInsets = .init(top: 16, left: 16, bottom: 16, right: 16)
-    var placeholder: String? = nil
-    var placeholderColor: UIColor = UIColor(red: 0.599, green: 0.599, blue: 0.599, alpha: 1)
+    @State var text: String = ""
     
-    public func makeUIView(context: Context) -> UITextView {
-        let textView = UITextView()
-        
-        if let cornerRadius = cornerRadius {
-            textView.layer.cornerRadius = cornerRadius
-            textView.layer.masksToBounds = true
-        }
-        if let borderWidth = borderWidth {
-            textView.layer.borderWidth = borderWidth
-        }
-        if let borderColor = borderColor {
-            textView.layer.borderColor = borderColor
-        }
-        if let placeholder = placeholder {
-            textView.text = placeholder
-            textView.textColor = placeholderColor
-        } else {
-            textView.textColor = textColor
-        }
-        
-        textView.font = textFont
-        textView.isScrollEnabled = isScrollEnabled
-        textView.isEditable = isEditable
-        textView.isUserInteractionEnabled = isUserInteractionEnabled
-        textView.textContainer.lineFragmentPadding = lineFragmentPadding
-        textView.textContainerInset = textContainerInset
-        textView.delegate = context.coordinator
-        textView.becomeFirstResponder()
-        
-        return textView
+    var placeholder: String
+    var height: CGFloat
+    
+    private var borderColor: Color {
+        text.isEmpty ? .g4 : .p4
     }
     
-    public func updateUIView(_ uiView: UITextView, context: Context) {
-        
+    public init(
+        placeholder: String,
+        height: CGFloat
+    ) {
+        self.placeholder = placeholder
+        self.height = height
     }
     
-    public func makeCoordinator() -> Coordinator {
-        return Coordinator(parent: self)
-    }
-    
-    public class Coordinator: NSObject, UITextViewDelegate {
-        var parent: AlmaengiTextView
-        
-        init(parent: AlmaengiTextView) {
-            self.parent = parent
-        }
-        
-        public func textViewDidChange(_ textView: UITextView) {
-            parent.text = textView.text
-            
-            if textView.text.isEmpty {
-                textView.textColor = parent.placeholderColor
-            } else {
-                textView.textColor = parent.textColor
-            }
-            
-            if textView.text.count > parent.textLimit {
-                textView.text.removeLast()
-            }
-        }
-        
-        public func textViewDidBeginEditing(_ textView: UITextView) {
-            if textView.text == parent.placeholder {
-                textView.text = ""
-            }
-        }
-        
-        public func textViewDidEndEditing(_ textView: UITextView) {
-            if textView.text.isEmpty {
-                textView.text = parent.placeholder
-            }
-        }
+    public var body: some View {
+        TextView(text: $text,
+                 textFont: .boldSystemFont(ofSize: 14),
+                 isScrollEnabled: true,
+                 textContainerInset: UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16),
+                 placeholder: placeholder
+                 )
+        .overlay(
+            RoundedRectangle(cornerRadius: 8)
+                .stroke(borderColor, lineWidth: 1)
+            )
+        .frame(height: height)
     }
 }
