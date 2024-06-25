@@ -8,8 +8,15 @@
 import SwiftUI
 
 struct ProfileImageView: View {
-    @State private var openPhoto = false
-    @State private var image = UIImage()
+    
+    @State var showImagePicker = false
+    @State var selectedUIImage: UIImage?
+    @State var image: Image?
+    
+    func loadImage() {
+        guard let selectedImage = selectedUIImage else { return }
+        image = Image(uiImage: selectedImage)
+    }
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -18,16 +25,20 @@ struct ProfileImageView: View {
             HStack {
                 Spacer()
                 VStack(spacing: 20) {
-                    Image(uiImage: self.image)
-                        .resizable()
-                        .frame(width: 100, height: 100)
-                        .cornerRadius(50)
-                        .sheet(isPresented: $openPhoto, content: {
-                            ImagePicker(sourceType: .photoLibrary, selectedImage: self.$image)
-                        })
-                    Button(action: {
-                        self.openPhoto = true
-                    }, label: {
+                    if let image = image {
+                        image
+                            .resizable()
+                            .clipShape(Circle())
+                            .frame(width: 100, height: 100)
+                    } else {
+                        Image(asset: FeatureAsset.Images.Icon.profileView)
+                            .resizable()
+                            .foregroundColor(.blue)
+                            .frame(width: 100, height: 100)
+                    }
+                    Button {
+                        showImagePicker.toggle()
+                    } label: {
                         ZStack {
                             Rectangle()
                                 .foregroundColor(.p3)
@@ -35,7 +46,13 @@ struct ProfileImageView: View {
                                 .frame(width: 88, height: 34)
                             AlmaengiText("이미지 등록", textStyle: .descriptionBold, color: .white)
                         }
-                    })
+                    }
+                    .sheet(isPresented: $showImagePicker, onDismiss: {
+                        loadImage()
+                    }) {
+                        ImagePicker(image: $selectedUIImage)
+                    }
+                    
                 }
                 Spacer()
             }
