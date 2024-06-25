@@ -26,7 +26,7 @@ struct TutorialView2: View {
             }
             Spacer()
             AlmaengiNavLink(destination: AlmaengiTabBar()) {
-                AlmaengiButton(title: "알맹이 시작하기")
+                AlmaengiButton(title: "시작하기")
             }
             .padding(.vertical, 20)
         }
