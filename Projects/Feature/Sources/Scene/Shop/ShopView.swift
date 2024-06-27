@@ -9,8 +9,9 @@ import SwiftUI
 
 public struct ShopView: View {
     
-    @State  private  var selectedOptionIndex =  0
-    @State  private  var showDropdown =  false
+    @State private var selectedOptionIndex =  0
+    @State private var showDropdown = false
+    @State private var selectedOptions: [String] = []
     
     let dropdownMenu: [MenuOption] = [
         MenuOption(icon: Image(asset: FeatureAsset.Images.Icon.Dropdown.glasses), menu: "안경"),
@@ -33,10 +34,24 @@ public struct ShopView: View {
                         AlmaengiText("3423", textStyle: .bodyMedium, color: .p4)
                     }
                     Spacer()
-                    DropDownMenu(options: dropdownMenu, selectedOptionIndex: $selectedOptionIndex, showDropdown: $showDropdown)
+                    DropDownMenu(
+                        options: dropdownMenu,
+                        selectedOptionIndex: $selectedOptionIndex,
+                        showDropdown: $showDropdown,
+                        selectedOptions: $selectedOptions)
                 }
                 .padding(.vertical, 4)
                 .zIndex(1)
+                
+                if !selectedOptions.isEmpty {
+                    HStack(spacing: 10) {
+                        ForEach(selectedOptions.indices, id: \.self) { index in
+                            CategoryView(option: selectedOptions[index], selectedOptions: $selectedOptions)
+                        }
+                    }
+                    .padding(.vertical, 8)
+                }
+                
                 VStack(spacing: 11) {
                     HStack(spacing: 11) {
                         ShopCell(image: Image(asset: FeatureAsset.Images.Items.Hair.ribbon), name: "리본", point: 20)
@@ -58,3 +73,31 @@ public struct ShopView: View {
     }
 }
 
+// MARK: - Category
+struct CategoryView: View {
+    let option: String
+    @Binding var selectedOptions: [String]
+    
+    var body: some View {
+        HStack {
+            AlmaengiText(option, textStyle: .bodyMedium, color: .p3)
+            Button(action: {
+                if let index = selectedOptions.firstIndex(of: option) {
+                    selectedOptions.remove(at: index)
+                }
+            }, label: {
+                Image(asset: FeatureAsset.Images.Icon.cancel)
+                    .renderingMode(.template)
+                    .foregroundColor(.p3)
+                    .frame(width: 16, height: 16)
+            })
+        }
+        .padding(.vertical, 3)
+        .padding(.horizontal, 10)
+        .overlay(
+            RoundedRectangle(cornerRadius: 80)
+                .inset(by: 0.5)
+                .stroke(Color.p3, lineWidth: 1)
+        )
+    }
+}

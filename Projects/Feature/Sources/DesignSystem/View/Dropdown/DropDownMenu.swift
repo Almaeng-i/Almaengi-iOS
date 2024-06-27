@@ -22,6 +22,7 @@ struct DropDownMenu: View {
 
     @Binding var selectedOptionIndex: Int
     @Binding var showDropdown: Bool
+    @Binding var selectedOptions: [String]
     
     @State  private  var scrollPosition: Int?
     
@@ -50,6 +51,10 @@ struct DropDownMenu: View {
                             Button(action: {
                                 withAnimation {
                                     selectedOptionIndex = index
+                                    let menu = options[index].menu
+                                    if !selectedOptions.contains(menu) {
+                                        selectedOptions.append(menu)
+                                    }
                                     showDropdown.toggle()
                                 }
                             }, label: {
