@@ -9,6 +9,17 @@ import SwiftUI
 
 public struct ShopView: View {
     
+    @State  private  var selectedOptionIndex =  0
+    @State  private  var showDropdown =  false
+    
+    let dropdownMenu: [MenuOption] = [
+        MenuOption(icon: Image(asset: FeatureAsset.Images.Icon.Dropdown.glasses), menu: "안경"),
+        MenuOption(icon: Image(asset: FeatureAsset.Images.Icon.Dropdown.hair), menu: "헤어"),
+        MenuOption(icon: Image(asset: FeatureAsset.Images.Icon.Dropdown.face), menu: "페이스"),
+        MenuOption(icon: Image(asset: FeatureAsset.Images.Icon.Dropdown.accessories), menu: "악세서리"),
+        MenuOption(icon: Image(asset: FeatureAsset.Images.Icon.Dropdown.background), menu: "배경")
+    ]
+ 
     public init() { }
     
     public var body: some View {
@@ -22,18 +33,10 @@ public struct ShopView: View {
                         AlmaengiText("3423", textStyle: .bodyMedium, color: .p4)
                     }
                     Spacer()
-                    HStack(spacing: 4) {
-                        AlmaengiText("전체", textStyle: .bodyMedium, color: .g8)
-                        Button(action: {
-                            print("")
-                        }, label: {
-                            Image(asset: FeatureAsset.Images.Icon.downArrow)
-                                .resizable()
-                                .frame(width: 16, height: 16)
-                        })
-                    }
+                    DropDownMenu(options: dropdownMenu, selectedOptionIndex: $selectedOptionIndex, showDropdown: $showDropdown)
                 }
                 .padding(.vertical, 4)
+                .zIndex(1)
                 VStack(spacing: 11) {
                     HStack(spacing: 11) {
                         ShopCell(image: Image(asset: FeatureAsset.Images.Items.Hair.ribbon), name: "리본", point: 20)
@@ -54,3 +57,4 @@ public struct ShopView: View {
         }
     }
 }
+
