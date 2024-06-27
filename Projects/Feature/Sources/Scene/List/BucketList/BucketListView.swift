@@ -27,13 +27,9 @@ public struct BucketListView: View {
                     BucketListCell(title: "알맹이 iOS Test Text", content: "Test Content", background: .clear, isAchieve: true)
                         .listRowSeparator(.hidden)
                         .listRowInsets(EdgeInsets(.init(top: 6, leading: 0, bottom: 6, trailing: 0)))
-                    
                 }
             }
         }
         .padding(.vertical, 24)
     }
 }
-
-
-
