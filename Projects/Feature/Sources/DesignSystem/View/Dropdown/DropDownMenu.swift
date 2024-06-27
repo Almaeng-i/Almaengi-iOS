@@ -19,7 +19,7 @@ struct DropDownMenu: View {
     var menuWdith: CGFloat = 168
     var buttonHeight: CGFloat = 44
     var maxItemDisplayed: Int = 5
-
+    
     @Binding var selectedOptionIndex: Int
     @Binding var showDropdown: Bool
     @Binding var selectedOptions: [String]
@@ -41,33 +41,30 @@ struct DropDownMenu: View {
                         .frame(width: 16, height: 16)
                 }
             })
-
+            
             if (showDropdown) {
                 let scrollViewHeight: CGFloat  = options.count > maxItemDisplayed ? (buttonHeight * CGFloat(maxItemDisplayed)) : (buttonHeight * CGFloat(options.count))
                 
-                ScrollView {
-                    LazyVStack(spacing: 0) {
-                        ForEach(0..<options.count, id: \.self) { index in
-                            Button(action: {
-                                withAnimation {
-                                    selectedOptionIndex = index
-                                    let menu = options[index].menu
-                                    if !selectedOptions.contains(menu) {
-                                        selectedOptions.append(menu)
-                                    }
-                                    showDropdown.toggle()
+                LazyVStack(spacing: 0) {
+                    ForEach(0..<options.count, id: \.self) { index in
+                        Button(action: {
+                            withAnimation {
+                                selectedOptionIndex = index
+                                let menu = options[index].menu
+                                if !selectedOptions.contains(menu) {
+                                    selectedOptions.append(menu)
                                 }
-                            }, label: {
-                                HStack(spacing: 8) {
-                                    options[index].icon
-                                    AlmaengiText(options[index].menu, textStyle: .bodyMedium, color: .g9)
-                                }
-                            })
-                            .padding(.leading, 12)
-                            .frame(width: menuWdith, height: buttonHeight, alignment: .leading)
-                        }
+                                showDropdown.toggle()
+                            }
+                        }, label: {
+                            HStack(spacing: 8) {
+                                options[index].icon
+                                AlmaengiText(options[index].menu, textStyle: .bodyMedium, color: .g9)
+                            }
+                        })
+                        .padding(.leading, 12)
+                        .frame(width: menuWdith, height: buttonHeight, alignment: .leading)
                     }
-                    .scrollTargetLayout()
                 }
                 .padding(.vertical, 8)
                 .scrollPosition(id: $scrollPosition)

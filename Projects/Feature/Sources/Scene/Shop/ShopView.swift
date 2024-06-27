@@ -12,6 +12,7 @@ public struct ShopView: View {
     @State private var selectedOptionIndex =  0
     @State private var showDropdown = false
     @State private var selectedOptions: [String] = []
+    @State private var selectedHaart: Bool = false
     
     let dropdownMenu: [MenuOption] = [
         MenuOption(icon: Image(asset: FeatureAsset.Images.Icon.Dropdown.glasses), menu: "안경"),
@@ -56,16 +57,16 @@ public struct ShopView: View {
                 
                 VStack(spacing: 11) {
                     HStack(spacing: 11) {
-                        ShopCell(image: Image(asset: FeatureAsset.Images.Items.Hair.ribbon), name: "리본", point: 20)
-                        ShopCell(image: Image(asset: FeatureAsset.Images.Items.Hair.ribbon), name: "리본", point: 20)
+                        ShopCell(image: Image(asset: FeatureAsset.Images.Items.Hair.ribbon), name: "리본", point: 20, selectedHaart: $selectedHaart)
+                        ShopCell(image: Image(asset: FeatureAsset.Images.Items.Hair.ribbon), name: "리본", point: 20, selectedHaart: $selectedHaart)
                     }
                     HStack(spacing: 11) {
-                        ShopCell(image: Image(asset: FeatureAsset.Images.Items.Hair.ribbon), name: "리본", point: 20)
-                        ShopCell(image: Image(asset: FeatureAsset.Images.Items.Hair.ribbon), name: "리본", point: 20)
+                        ShopCell(image: Image(asset: FeatureAsset.Images.Items.Hair.ribbon), name: "리본", point: 20, selectedHaart: $selectedHaart)
+                        ShopCell(image: Image(asset: FeatureAsset.Images.Items.Hair.ribbon), name: "리본", point: 20, selectedHaart: $selectedHaart)
                     }
                     HStack(spacing: 11) {
-                        ShopCell(image: Image(asset: FeatureAsset.Images.Items.Hair.ribbon), name: "리본", point: 20)
-                        ShopCell(image: Image(asset: FeatureAsset.Images.Items.Hair.ribbon), name: "리본", point: 20)
+                        ShopCell(image: Image(asset: FeatureAsset.Images.Items.Hair.ribbon), name: "리본", point: 20, selectedHaart: $selectedHaart)
+                        ShopCell(image: Image(asset: FeatureAsset.Images.Items.Hair.ribbon), name: "리본", point: 20, selectedHaart: $selectedHaart)
                     }
                 }
                 .padding(.vertical, 8)
