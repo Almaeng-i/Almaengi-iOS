@@ -44,12 +44,14 @@ public struct ShopView: View {
                 .zIndex(1)
                 
                 if !selectedOptions.isEmpty {
-                    HStack(spacing: 10) {
-                        ForEach(selectedOptions.indices, id: \.self) { index in
-                            CategoryView(option: selectedOptions[index], selectedOptions: $selectedOptions)
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        LazyHStack(spacing: 10) {
+                            ForEach(selectedOptions, id: \.self) { option in
+                                CategoryView(option: option, selectedOptions: $selectedOptions)
+                            }
                         }
+                        .padding(.vertical, 8)
                     }
-                    .padding(.vertical, 8)
                 }
                 
                 VStack(spacing: 11) {
@@ -101,3 +103,4 @@ struct CategoryView: View {
         )
     }
 }
+
