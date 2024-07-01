@@ -8,7 +8,7 @@ public struct ContentView: View {
     public var body: some View {
         AlmaengiTabBar()
             .fullScreenCover(isPresented: $isFirstLaunching) {
-                AlmaengiSelectView()
+                LoginView()
             }
     }
 }

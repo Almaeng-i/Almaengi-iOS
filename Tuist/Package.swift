@@ -6,7 +6,10 @@ import PackageDescription
 
     let packageSettings = PackageSettings(
         productTypes: [
-            "Moya": .framework
+            "Moya": .framework,
+            "KakaoSDKCommon": .framework,
+            "KakaoSDKAuth": .framework,
+            "KakaoSDKUser": .framework
         ]
     )
 
@@ -15,6 +18,7 @@ import PackageDescription
 let package = Package(
     name: "PackageName",
     dependencies: [
-        .package(url: "https://github.com/Moya/Moya.git", from: "15.0.0")
+        .package(url: "https://github.com/Moya/Moya.git", from: "15.0.0"),
+        .package(url: "https://github.com/kakao/kakao-ios-sdk", branch: "master")
     ]
 )
