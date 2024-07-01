@@ -11,6 +11,7 @@ import KakaoSDKAuth
 import KakaoSDKUser
 
 struct KakaoSigninButton: View {
+    
     var body: some View {
         Button {
             if (UserApi.isKakaoTalkLoginAvailable()) {
@@ -18,7 +19,8 @@ struct KakaoSigninButton: View {
                     if let error = error {
                         print(error)
                     }
-                    if let oauthToken = oauthToken {
+                    if oauthToken != nil {
+                        
                     }
                 }
             } else {
@@ -26,7 +28,7 @@ struct KakaoSigninButton: View {
                     if let error = error {
                         print(error)
                     }
-                    if let oauthToken = oauthToken {
+                    if oauthToken != nil {
                         print("kakao success")
                     }
                 }

@@ -11,7 +11,12 @@ let project = Project(
             infoPlist: .default,
             sources: ["Sources/**"],
             resources: ["Resources/**"],
-            dependencies: []
+            dependencies: [
+                .external(name: "Moya"),
+                .external(name: "KakaoSDKCommon"),
+                .external(name: "KakaoSDKAuth"),
+                .external(name: "KakaoSDKUser")
+            ]
         )
     ]
 )
