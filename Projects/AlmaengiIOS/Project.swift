@@ -7,7 +7,7 @@ let project = Project(
             name: "AlmaengiIOS",
             destinations: .iOS,
             product: .app,
-            bundleId: "io.tuist.AlmaengiIOS",
+            bundleId: "com.Almaengi",
             deploymentTargets: .iOS("17.0"),
             infoPlist: .extendingDefault(
                 with: [
@@ -29,7 +29,7 @@ let project = Project(
             name: "AlmaengiIOSTests",
             destinations: .iOS,
             product: .unitTests,
-            bundleId: "io.tuist.AlmaengiIOSTests",
+            bundleId: "com.AlmaengiTests",
             infoPlist: .default,
             sources: ["Tests/**"],
             resources: [],
