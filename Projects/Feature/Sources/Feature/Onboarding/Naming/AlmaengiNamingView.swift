@@ -1,5 +1,5 @@
 //
-//  NamingView.swift
+//  AlmaengiNamingView.swift
 //  Feature
 //
 //  Created by 새미 on 5/24/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct NamingView: View {
+struct AlmaengiNamingView: View {
     @State var name: String
     
     var body: some View {

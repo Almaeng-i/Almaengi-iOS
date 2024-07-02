@@ -26,7 +26,7 @@ struct UserNamingView: View {
                     text: $name
                 )
                 Spacer()
-                AlmaengiNavLink(destination: ProfileImageView()) {
+                AlmaengiNavLink(destination: AlmaengiSelectView()) {
                     AlmaengiButton(title: "다음")
                 }
                 .padding(.vertical, 20)

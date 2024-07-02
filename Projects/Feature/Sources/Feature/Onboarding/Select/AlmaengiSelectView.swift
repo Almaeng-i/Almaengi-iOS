@@ -23,40 +23,38 @@ public struct AlmaengiSelectView: View {
     @State var selectedIndex: Int? = nil
     
     public var body: some View {
-        AlmaengiNavView {
-            VStack(alignment: .leading) {
-                AlmaengiText(
-                    "김새미님과 함께 할\n알맹이를 선택해주세요.",
-                    textStyle: .titleBold,
-                    color: .g9
-                )
-                .padding(.vertical, 20)
-                VStack(spacing: 8) {
-                    HStack(spacing: 8) {
-                        ForEach(0..<3) { index in
-                            AlmaengiView(
-                                image: image[index],
-                                name: almaengiNames[index], index: index, selectedIndex: $selectedIndex)
-                        }
-                    }
-                    HStack(spacing: 8) {
-                        ForEach(3..<6) { index in
-                            AlmaengiView(
-                                image: image[index],
-                                name: almaengiNames[index], index: index, selectedIndex: $selectedIndex)
-                        }
+        VStack(alignment: .leading) {
+            AlmaengiText(
+                "김새미님과 함께 할\n알맹이를 선택해주세요.",
+                textStyle: .titleBold,
+                color: .g9
+            )
+            .padding(.vertical, 20)
+            VStack(spacing: 8) {
+                HStack(spacing: 8) {
+                    ForEach(0..<3) { index in
+                        AlmaengiView(
+                            image: image[index],
+                            name: almaengiNames[index], index: index, selectedIndex: $selectedIndex)
                     }
                 }
-                .padding(.vertical, 8)
-                Spacer()
-                AlmaengiNavLink(destination: NamingView(name: "")) {
-                    AlmaengiButton(title: "다음")
+                HStack(spacing: 8) {
+                    ForEach(3..<6) { index in
+                        AlmaengiView(
+                            image: image[index],
+                            name: almaengiNames[index], index: index, selectedIndex: $selectedIndex)
+                    }
                 }
-                .padding(.vertical, 20)
             }
-            .AlmaengiNavBarItems(title: "알맹이 선택", backButtonHidden: true, backgroundColor: .clear)
-            .padding(.horizontal, 24)
+            .padding(.vertical, 8)
+            Spacer()
+            AlmaengiNavLink(destination: AlmaengiNamingView(name: "")) {
+                AlmaengiButton(title: "다음")
+            }
+            .padding(.vertical, 20)
         }
+        .AlmaengiNavBarItems(title: "알맹이 선택", backButtonHidden: true, backgroundColor: .clear)
+        .padding(.horizontal, 24)
     }
 }
 
