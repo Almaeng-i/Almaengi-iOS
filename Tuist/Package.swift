@@ -10,7 +10,13 @@ import PackageDescription
             "KakaoSDKCommon": .framework,
             "KakaoSDKAuth": .framework,
             "KakaoSDKUser": .framework
-        ]
+        ],
+        baseSettings: .settings (
+            configurations: [
+                .debug(name: .debug),
+                .release(name: .release)
+            ]
+        )
     )
 
 #endif

@@ -2,6 +2,12 @@ import ProjectDescription
 
 let project = Project(
     name: "AlmaengiIOS",
+    settings: .settings(
+        configurations: [
+            .debug(name: .debug, xcconfig: "./Almaengi.xcconfig"),
+            .release(name: .release, xcconfig: "./Almaengi.xcconfig")
+        ]
+    ),
     targets: [
         .target(
             name: "AlmaengiIOS",
@@ -13,7 +19,15 @@ let project = Project(
                 with: [
                     "UILaunchStoryboardName": "LaunchScreen.storyboard",
                     "CFBundleDisplayName": "알맹이",
-                    "UIUserInterfaceStyle": "Light"
+                    "UIUserInterfaceStyle": "Light",
+                    "LSApplicationQueriesSchemes": [
+                        "kakaokompassauth",
+                        "kakaolink"
+                    ],
+                    "KAKAO_NATIVE_APP_KEY": "${KAKAO_NATIVE_APP_KEY}",
+                    "NSAppTransportSecurity": [
+                        "NSAllowsArbitraryLoads": false
+                    ]
                 ]
             ),
             sources: ["Sources/**"],
