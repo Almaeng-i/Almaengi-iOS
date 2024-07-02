@@ -9,6 +9,8 @@ import SwiftUI
 
 public struct LoginView: View {
     
+    @State private var isLogin: Bool = false 
+    
     public init() {}
     
     public var body: some View {
@@ -31,9 +33,14 @@ public struct LoginView: View {
                     .frame(width: 222, height: 193)
                 Spacer()
                 VStack(spacing: 12) {
-                    KakaoSigninButton()
+                    KakaoSigninButton {
+                        self.isLogin = true
+                    }
                     Image(asset: FeatureAsset.Images.LoginButton.apple)
                 }
+                .fullScreenCover(isPresented: $isLogin, content: {
+                    AlmaengiTabBar()
+                })
                 .padding(.bottom, 24)
             }
             .padding(.horizontal, 24)
