@@ -10,6 +10,7 @@ import SwiftUI
 public struct LoginView: View {
     
     @State private var isLogin: Bool = false 
+    @AppStorage("isFirstLaunch") private var isFirstLaunch: Bool = true
     
     public init() {}
     
@@ -41,10 +42,21 @@ public struct LoginView: View {
             }
             .padding(.vertical, 24)
             .fullScreenCover(isPresented: $isLogin, content: {
-                AlmaengiTabBar()
+                if isFirstLaunch {
+                    AlmaengiSelectView()
+                } else {
+                    AlmaengiTabBar()
+                }
             })
         }
         .padding(.horizontal, 24)
+    }
+    
+    private func handleLoginSuccess() {
+        self.isLogin = true
+        if isFirstLaunch {
+            isFirstLaunch = false
+        }
     }
 }
 
