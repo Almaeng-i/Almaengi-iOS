@@ -4,10 +4,11 @@ import KakaoSDKAuth
 
 @main
 struct AlmaengiIOSApp: App {
-    let nativeAppKey = Bundle.main.infoDictionary?["KAKAO_NATIVE_APP_KEY"] ?? ""
+    
+    let nativeAppKey = Bundle.feature.object(forInfoDictionaryKey: "KAKAO_NATIVE_APP_KEY") as? String ?? ""
     
     init() {
-        KakaoSDK.initSDK(appKey: nativeAppKey as! String)
+        KakaoSDK.initSDK(appKey: nativeAppKey)
     }
     var body: some Scene {
         WindowGroup {
@@ -19,4 +20,10 @@ struct AlmaengiIOSApp: App {
                 }
         }
     }
+}
+
+private class BundleFinder {}
+
+extension Foundation.Bundle {
+    static let feature = Bundle(for: BundleFinder.self)
 }

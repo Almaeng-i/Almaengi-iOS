@@ -19,8 +19,8 @@ struct KakaoSigninButton: View {
                     if let error = error {
                         print(error)
                     }
-                    if oauthToken != nil {
-                        
+                    else {
+                        print("success")
                     }
                 }
             } else {
