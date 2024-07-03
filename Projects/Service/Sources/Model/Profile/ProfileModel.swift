@@ -8,10 +8,10 @@
 import Foundation
 
 public struct ProfileModel: Decodable {
-    let date: ProfileMode
+    let date: ProfileModel
 }
 
-public struct ProfileMode: Decodable {
+public struct ProfileModel: Decodable {
     public let name: String
     public let introduction: String
     public let image: String

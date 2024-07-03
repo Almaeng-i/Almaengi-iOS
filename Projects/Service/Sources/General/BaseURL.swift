@@ -9,5 +9,4 @@ import Foundation
 
 struct BaseURL {
     static let baseURL = Bundle.main.object(forInfoDictionaryKey: "BASE_URL") as? String ?? ""
-
 }
