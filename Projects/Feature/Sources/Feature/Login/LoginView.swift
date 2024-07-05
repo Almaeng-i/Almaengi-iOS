@@ -36,8 +36,8 @@ public struct LoginView: View {
             Spacer()
             VStack(spacing: 12) {
                 Image(asset: FeatureAsset.Images.LoginButton.apple)
-                KakaoSigninButton {
-                    self.isLogin = true
+                KakaoSigninButton { accessToken, refreshToken in
+                    self.handleLoginSuccess(accessToken: accessToken, refreshToken: refreshToken)
                 }
             }
             .padding(.vertical, 24)
@@ -52,8 +52,12 @@ public struct LoginView: View {
         .padding(.horizontal, 24)
     }
     
-    private func handleLoginSuccess() {
+    private func handleLoginSuccess(accessToken: String, refreshToken: String) {
+        KeyChain.shared.create(key: Const.KeyChainKey.accessToken, token: accessToken)
+        KeyChain.shared.create(key: Const.KeyChainKey.refreshToken, token: refreshToken)
+    
         self.isLogin = true
+   
         if isFirstLaunch {
             isFirstLaunch = false
         }

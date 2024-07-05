@@ -12,7 +12,7 @@ import KakaoSDKUser
 
 struct KakaoSigninButton: View {
     
-    var onSuccess: () -> Void
+    var onSuccess: (String, String) -> Void
     
     var body: some View {
         Button {
@@ -21,9 +21,8 @@ struct KakaoSigninButton: View {
                     if let error = error {
                         print(error)
                     }
-                    else {
-                        print("success")
-                        self.onSuccess()
+                    else if let token = oauthToken?.accessToken, let refreshToekn = oauthToken?.refreshToken {
+                        self.onSuccess(token, refreshToekn)
                     }
                 }
             } else {
@@ -31,9 +30,8 @@ struct KakaoSigninButton: View {
                     if let error = error {
                         print(error)
                     }
-                    if oauthToken != nil {
-                        print("kakao success")
-                        self.onSuccess()
+                    if let token = oauthToken?.accessToken, let refreshToken = oauthToken?.refreshToken {
+                        self.onSuccess(token, refreshToken)
                     }
                 }
             }

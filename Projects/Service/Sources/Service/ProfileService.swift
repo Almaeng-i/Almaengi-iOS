@@ -8,13 +8,13 @@
 import Foundation
 import Moya
 
-public enum ProfileServices {
+public enum ProfileService {
     case createProfile(authorization: String, param: ProfileRequest)
     case updateProfile(authorization: String, param: ProfileRequest)
     case getProfile(authorization: String)
 }
 
-extension ProfileServices: TargetType {
+extension ProfileService: TargetType {
     public var baseURL: URL {
         return URL(string: BaseURL.baseURL)!
     }

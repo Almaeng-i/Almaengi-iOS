@@ -12,6 +12,7 @@ let project = Project(
             sources: ["Sources/**"],
             resources: ["Resources/**"],
             dependencies: [
+                .project(target: "Service", path: "../Service"),
                 .external(name: "Moya"),
                 .external(name: "KakaoSDKCommon"),
                 .external(name: "KakaoSDKAuth"),
@@ -20,3 +21,4 @@ let project = Project(
         )
     ]
 )
+

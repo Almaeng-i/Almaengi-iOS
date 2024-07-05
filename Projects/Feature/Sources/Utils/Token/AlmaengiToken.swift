@@ -8,6 +8,13 @@
 import Foundation
 import Security
 
+public struct Const {
+    public struct KeyChainKey {
+        public static let accessToken = "accessToken"
+        public static let refreshToken = "refreshToken"
+    }
+}
+
 public class KeyChain {
     public static let shared = KeyChain()
     
@@ -68,15 +75,7 @@ public class KeyChain {
         
         let status = SecItemDelete(query)
         if status != errSecSuccess {
-            print("Failed to delete item from Keychain with status code \(status)")
+            print("Failed to delete item from Keychain | Status code \(status)")
         }
-    }
-}
-
-public struct Const {
-    public struct KeyChainKey {
-        public static let accessToken = "accessToken"
-        static let refreshToken = "refreshToken"
-        static let authority = "authority"
     }
 }
