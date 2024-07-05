@@ -8,10 +8,6 @@
 import Foundation
 
 public struct ProfileModel: Decodable {
-    let date: ProfileModel
-}
-
-public struct ProfileModel: Decodable {
     public let name: String
     public let introduction: String
     public let image: String
