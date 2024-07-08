@@ -8,7 +8,13 @@
 import SwiftUI
 
 struct UserNamingView: View {
+    @ObservedObject private var viewModel: OnboardingViewModel
     @State var name: String
+    
+    init(viewModel: OnboardingViewModel) {
+        self.viewModel = viewModel
+        _name = State(initialValue: viewModel.userName)
+    }
     
     var body: some View {
         AlmaengiNavView {
@@ -21,13 +27,13 @@ struct UserNamingView: View {
                 .padding(.vertical, 20)
                 AlmaengiText("이름", textStyle: .descriptionBold, color: .g9, isFixedSize: true)
                     .padding(.bottom, 4)
-                AlmaengiTextField(
-                    "이름을 입력해주세요.",
-                    text: $name
-                )
+    
+                AlmaengiTextField("이름을 입력해주세요.", text: $name)
                 Spacer()
                 AlmaengiNavLink(destination: AlmaengiSelectView()) {
                     AlmaengiButton(title: "다음")
+                } action: {
+                    viewModel.userName = name
                 }
                 .padding(.vertical, 20)
             }
@@ -35,4 +41,6 @@ struct UserNamingView: View {
             .padding(.horizontal, 24)
         }
     }
+    
 }
+

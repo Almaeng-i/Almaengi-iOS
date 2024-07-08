@@ -15,6 +15,10 @@ class OnboardingViewModel: BaseViewModel {
     @Published var profileURL: String?
     @Published var introduction: String = ""
     
+    init(userName: String) {
+        self.userName = userName
+    }
+    
     let profileProvider = MoyaProvider<ProfileService>()
     
     init(userName: String, profileURL: String?, introduction: String) {

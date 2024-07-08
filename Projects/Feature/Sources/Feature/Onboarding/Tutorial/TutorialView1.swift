@@ -27,6 +27,8 @@ struct TutorialView1: View {
             Spacer()
             AlmaengiNavLink(destination: TutorialView2()) {
                 AlmaengiButton(title: "다음")
+            } action: {
+                print("")
             }
             .padding(.vertical, 20)
         }

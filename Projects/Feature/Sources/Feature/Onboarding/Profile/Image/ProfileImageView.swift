@@ -59,6 +59,8 @@ struct ProfileImageView: View {
             Spacer()
             AlmaengiNavLink(destination: ProfileIntroduce()) {
                 AlmaengiButton(title: "다음")
+            } action: {
+                print("")
             }
             .padding(.bottom, 16)
             HStack {
@@ -68,6 +70,8 @@ struct ProfileImageView: View {
                 }, label: {
                     AlmaengiNavLink(destination: ProfileIntroduce()) {
                         AlmaengiText("다음에 할게요", textStyle: .bodyBold, color: .p3)
+                    } action: {
+                        print("")
                     }
                 })
                 Spacer()

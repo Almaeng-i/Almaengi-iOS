@@ -27,7 +27,10 @@ struct TutorialView2: View {
             Spacer()
             AlmaengiNavLink(destination: AlmaengiTabBar()) {
                 AlmaengiButton(title: "시작하기")
+            } action: {
+                print("")
             }
+            
             .padding(.vertical, 20)
         }
         .padding(.horizontal, 24)

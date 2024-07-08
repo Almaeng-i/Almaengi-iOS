@@ -41,6 +41,8 @@ public struct MypageView: View {
             VStack(spacing: 20) {
                 AlmaengiNavLink(destination: CollectionView()) {
                     SectionCell(icon: icon[0], title: title[0])
+                } action: {
+                    print("")
                 }
                 SectionCell(icon: icon[1], title: title[1])
                 

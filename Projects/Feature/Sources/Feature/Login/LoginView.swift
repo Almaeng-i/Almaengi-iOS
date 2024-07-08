@@ -43,9 +43,9 @@ public struct LoginView: View {
             .padding(.vertical, 24)
             .fullScreenCover(isPresented: $isLogin, content: {
                 if isFirstLaunch {
-                    UserNamingView(name: "")
+                    UserNamingView(viewModel: OnboardingViewModel(userName: ""))
                 } else {
-                    AlmaengiTabBar()
+                    UserNamingView(viewModel: OnboardingViewModel(userName: ""))
                 }
             })
         }

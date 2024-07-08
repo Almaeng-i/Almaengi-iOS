@@ -9,7 +9,7 @@ import SwiftUI
 
 public struct AlmaengiSelectView: View {
     public init() {}
-
+    
     private let image = [
         Image(asset: FeatureAsset.Images.Almaengi.Color.Potato.level1),
         Image(asset: FeatureAsset.Images.Almaengi.Color.Sweetpotato.level1),
@@ -49,11 +49,13 @@ public struct AlmaengiSelectView: View {
             .padding(.vertical, 8)
             Spacer()
             AlmaengiNavLink(destination: AlmaengiNamingView(name: "")) {
-                AlmaengiButton(title: "다음")
+                AlmaengiButton(title: "다음") 
+            } action: {
+                print("")
             }
             .padding(.vertical, 20)
         }
-        .AlmaengiNavBarItems(title: "알맹이 선택", backButtonHidden: true, backgroundColor: .clear)
+        .AlmaengiNavBarItems(title: "알맹이 선택", backButtonHidden: false, backgroundColor: .clear)
         .padding(.horizontal, 24)
     }
 }

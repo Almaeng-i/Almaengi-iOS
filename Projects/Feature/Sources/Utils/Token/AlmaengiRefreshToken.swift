@@ -14,7 +14,5 @@ public class AlmaengiRefreshToken {
     private let accountProvider = MoyaProvider<AccountsService>()
     private lazy var refreshToken = "Bearer " + (keychain.read(key: Const.KeyChainKey.refreshToken) ?? "")
     
-    func updateKeychainToken() {
-        
-    }
+    
 }

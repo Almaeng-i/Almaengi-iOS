@@ -11,10 +11,13 @@ struct AlmaengiNavLink<Label: View, Destination: View>: View {
     
     let destination: Destination
     let label: Label
+    var action: () -> Void
     
-    init(destination: Destination, @ViewBuilder label: () -> Label) {
+    
+    init(destination: Destination, @ViewBuilder label: () -> Label, action: @escaping () -> Void) {
         self.destination = destination
         self.label = label()
+        self.action = action
     }
     
     var body: some View {
@@ -25,5 +28,10 @@ struct AlmaengiNavLink<Label: View, Destination: View>: View {
         ) {
             label
         }
+        .simultaneousGesture(TapGesture().onEnded{
+            action()
+        })
     }
 }
+
+

@@ -34,6 +34,8 @@ struct AlmaengiNamingView: View {
             Spacer()
             AlmaengiNavLink(destination: ProfileImageView()) {
                 AlmaengiButton(title: "다음")
+            } action: {
+                print("")
             }
             .padding(.vertical, 20)
         }
