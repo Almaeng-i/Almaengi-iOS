@@ -30,7 +30,7 @@ struct UserNamingView: View {
     
                 AlmaengiTextField("이름을 입력해주세요.", text: $name)
                 Spacer()
-                AlmaengiNavLink(destination: AlmaengiSelectView()) {
+                AlmaengiNavLink(destination: AlmaengiSelectView(viewModel: OnboardingViewModel(userName: viewModel.userName))) {
                     AlmaengiButton(title: "다음")
                 } action: {
                     viewModel.userName = name

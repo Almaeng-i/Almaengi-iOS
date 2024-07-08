@@ -8,7 +8,12 @@
 import SwiftUI
 
 public struct AlmaengiSelectView: View {
-    public init() {}
+    
+    @ObservedObject private var viewModel: OnboardingViewModel
+    
+    init(viewModel: OnboardingViewModel) {
+        self.viewModel = viewModel
+    }
     
     private let image = [
         Image(asset: FeatureAsset.Images.Almaengi.Color.Potato.level1),
@@ -25,7 +30,7 @@ public struct AlmaengiSelectView: View {
     public var body: some View {
         VStack(alignment: .leading) {
             AlmaengiText(
-                "김새미님과 함께 할\n알맹이를 선택해주세요.",
+                "\(viewModel.userName)님과 함께 할\n알맹이를 선택해주세요.",
                 textStyle: .titleBold,
                 color: .g9
             )
@@ -35,7 +40,8 @@ public struct AlmaengiSelectView: View {
                     ForEach(0..<3) { index in
                         AlmaengiView(
                             image: image[index],
-                            name: almaengiNames[index], index: index, selectedIndex: $selectedIndex)
+                            name: almaengiNames[index], index: index, selectedIndex: $selectedIndex
+                        )
                     }
                 }
                 HStack(spacing: 8) {
@@ -49,7 +55,7 @@ public struct AlmaengiSelectView: View {
             .padding(.vertical, 8)
             Spacer()
             AlmaengiNavLink(destination: AlmaengiNamingView(name: "")) {
-                AlmaengiButton(title: "다음") 
+                AlmaengiButton(title: "다음")
             } action: {
                 print("")
             }
