@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct AlmaengiView: View {
+    
     var image: Image
     var name: String
     var index: Int
+    
     @Binding var selectedIndex: Int?
     
     var body: some View {

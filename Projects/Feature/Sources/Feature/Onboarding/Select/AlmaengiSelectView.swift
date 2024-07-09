@@ -6,13 +6,16 @@
 //
 
 import SwiftUI
+import Service
 
 public struct AlmaengiSelectView: View {
     
     @ObservedObject private var viewModel: OnboardingViewModel
+    @State var type: String
     
     init(viewModel: OnboardingViewModel) {
         self.viewModel = viewModel
+        _type = State(initialValue: viewModel.almaengiType)
     }
     
     private let image = [
@@ -54,15 +57,34 @@ public struct AlmaengiSelectView: View {
             }
             .padding(.vertical, 8)
             Spacer()
-            AlmaengiNavLink(destination: AlmaengiNamingView(name: "")) {
+            AlmaengiNavLink(destination: AlmaengiNamingView(viewModel: OnboardingViewModel(userName: viewModel.userName, almaengiName: viewModel.almaengiName))) {
                 AlmaengiButton(title: "다음")
             } action: {
-                print("")
+                selectAlmaengiType()
             }
             .padding(.vertical, 20)
         }
         .AlmaengiNavBarItems(title: "알맹이 선택", backButtonHidden: false, backgroundColor: .clear)
         .padding(.horizontal, 24)
     }
+    
+    func selectAlmaengiType() {
+        if let selectedIndex = selectedIndex {
+            if selectedIndex == 0 {
+                type = AlmaengiType.potato.almaengiType
+            } else if selectedIndex == 1 {
+                type = AlmaengiType.sweetpotato.almaengiType
+            } else if selectedIndex == 2 {
+                type = AlmaengiType.peach.almaengiType
+            } else if selectedIndex == 3 {
+                type = AlmaengiType.chestnut.almaengiType
+            } else if selectedIndex == 4 {
+                type = AlmaengiType.corn.almaengiType
+            } else if selectedIndex == 5 {
+                type = AlmaengiType.avocado.almaengiType
+            }
+        }
+        
+        viewModel.almaengiType = type
+    }
 }
-

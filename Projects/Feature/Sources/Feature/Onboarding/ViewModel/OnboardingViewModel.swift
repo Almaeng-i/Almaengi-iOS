@@ -16,10 +16,11 @@ class OnboardingViewModel: BaseViewModel {
     @Published var introduction: String = ""
     
     @Published var almaengiType: String = ""
-    @Published var almeangiName: String = ""
+    @Published var almaengiName: String
     
-    init(userName: String) {
+    init(userName: String, almaengiName: String) {
         self.userName = userName
+        self.almaengiName = almaengiName
     }
     
     let profileProvider = MoyaProvider<ProfileService>()
@@ -29,7 +30,7 @@ class OnboardingViewModel: BaseViewModel {
         self.profileURL = profileURL
         self.introduction = introduction
         self.almaengiType = almaengiType
-        self.almeangiName = almaengiName
+        self.almaengiName = almaengiName
     }
     
     func createProfile() {

@@ -43,9 +43,9 @@ public struct LoginView: View {
             .padding(.vertical, 24)
             .fullScreenCover(isPresented: $isLogin, content: {
                 if isFirstLaunch {
-                    UserNamingView(viewModel: OnboardingViewModel(userName: ""))
+                    UserNamingView(viewModel: OnboardingViewModel(userName: "", almaengiName: ""))
                 } else {
-                    UserNamingView(viewModel: OnboardingViewModel(userName: ""))
+                    UserNamingView(viewModel:  OnboardingViewModel(userName: "", almaengiName: ""))
                 }
             })
         }

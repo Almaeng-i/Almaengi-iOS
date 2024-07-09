@@ -8,7 +8,13 @@
 import SwiftUI
 
 struct AlmaengiNamingView: View {
+    @ObservedObject private var viewModel: OnboardingViewModel
     @State var name: String
+    
+    init(viewModel: OnboardingViewModel) {
+        self.viewModel = viewModel
+        _name = State(initialValue: viewModel.almaengiName)
+    }
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -35,7 +41,7 @@ struct AlmaengiNamingView: View {
             AlmaengiNavLink(destination: ProfileImageView()) {
                 AlmaengiButton(title: "다음")
             } action: {
-                print("")
+                viewModel.almaengiName = name
             }
             .padding(.vertical, 20)
         }
