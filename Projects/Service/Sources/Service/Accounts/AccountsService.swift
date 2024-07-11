@@ -10,7 +10,7 @@ import Moya
 
 public enum AccountsService {
     case kakaoLogin(autorization: String)
-    case refreshToken(autorization: String)
+    case refreshToken(refreshtoken: String)
     case logout(autorization: String)
     case resign(autorization: String)
 }
@@ -57,10 +57,11 @@ extension AccountsService: TargetType {
     public var headers: [String : String]? {
         switch self {
         case .kakaoLogin(let authorization),
-             .refreshToken(let authorization),
              .logout(let authorization),
              .resign(let authorization):
             return ["Content-Type": "application/json", "autorization": authorization]
+        case .refreshToken(let refreshtoken):
+            return ["Content-Type": "application/json", "refreshtoken": refreshtoken]
         }
     }
 }
