@@ -9,8 +9,9 @@ import SwiftUI
 
 public struct MypageView: View {
     private let sectionTitle: [String] = ["알맹이 설정", "개인정보 설정"]
-    private let title: [String] = ["수집한 알맹이", "알맹이 튜토리얼", "로그아웃", "회원탈퇴", "알람 설정", "프로필 설정"]
+    private let title: [String] = ["수집한 알맹이", "아이템 보관함", "알맹이 튜토리얼", "로그아웃", "회원탈퇴", "알람 설정", "프로필 설정"]
     private let icon = [
+        Image(asset: FeatureAsset.Images.Icon.nuts),
         Image(asset: FeatureAsset.Images.Icon.box),
         Image(asset: FeatureAsset.Images.Icon.book),
         Image(asset: FeatureAsset.Images.Icon.logout),
@@ -43,12 +44,13 @@ public struct MypageView: View {
                     SectionCell(icon: icon[0], title: title[0])
                 }
                 SectionCell(icon: icon[1], title: title[1])
+                SectionCell(icon: icon[2], title: title[2])
                 
             }
             .padding(.vertical, 16)
             SectionHeader(title: sectionTitle[1])
             VStack(spacing: 20) {
-                ForEach(2..<6) { index in
+                ForEach(3..<7) { index in
                     SectionCell(icon: icon[index], title: title[index])
                 }
             }
