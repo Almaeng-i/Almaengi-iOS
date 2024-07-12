@@ -41,6 +41,5 @@ struct UserNamingView: View {
             .padding(.horizontal, 24)
         }
     }
-    
 }
 

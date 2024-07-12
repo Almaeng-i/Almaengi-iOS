@@ -12,6 +12,14 @@ import KakaoSDKUser
 
 struct KakaoSigninButton: View {
     
+    @ObservedObject private var viewModel: LoginViewModel
+    @State var accessToken: String
+    
+    init(viewModel: LoginViewModel) {
+        self.viewModel = viewModel
+        _accessToken = State(initialValue: viewModel.accessToeken)
+    }
+    
     var onSuccess: (String, String) -> Void
     
     var body: some View {
@@ -20,9 +28,11 @@ struct KakaoSigninButton: View {
                 UserApi.shared.loginWithKakaoTalk {(oauthToken, error) in
                     if let error = error {
                         print(error)
-                    }
-                    else if let token = oauthToken?.accessToken, let refreshToekn = oauthToken?.refreshToken {
-                        self.onSuccess(token, refreshToekn)
+                    } 
+                    else {
+                        if let token = oauthToken?.accessToken {
+                            // viewmodel 토큰 넣기
+                        }
                     }
                 }
             } else {
@@ -30,13 +40,17 @@ struct KakaoSigninButton: View {
                     if let error = error {
                         print(error)
                     }
-                    if let token = oauthToken?.accessToken, let refreshToken = oauthToken?.refreshToken {
-                        self.onSuccess(token, refreshToken)
+                    else {
+                        if let token = oauthToken?.accessToken {
+                            // viewmodel 토큰 넣기
+                        }
                     }
+z
                 }
             }
         } label : {
             Image(asset: FeatureAsset.Images.LoginButton.kakao)
         }
     }
+
 }
