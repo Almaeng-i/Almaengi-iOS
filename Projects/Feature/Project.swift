@@ -7,11 +7,16 @@ let project = Project(
             name: "Feature",
             destinations: .iOS,
             product: .staticFramework,
-            bundleId: "io.tuist.Feature",
+            bundleId: "com.Almaengi.Feature",
             infoPlist: .default,
             sources: ["Sources/**"],
             resources: ["Resources/**"],
-            dependencies: []
+            dependencies: [
+                .external(name: "Moya"),
+                .external(name: "KakaoSDKCommon"),
+                .external(name: "KakaoSDKAuth"),
+                .external(name: "KakaoSDKUser")
+            ]
         )
     ]
 )

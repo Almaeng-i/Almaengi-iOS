@@ -7,9 +7,10 @@ let project = Project(
             name: "Service",
             destinations: .iOS,
             product: .staticFramework,
-            bundleId: "io.tuist.Service",
+            bundleId: "com.Almaengi.Service",
             sources: ["Sources/**"],
             dependencies: []
         )
     ]
 )
+
