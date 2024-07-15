@@ -11,19 +11,25 @@ struct CalenderView: View {
     
     @State private var month: Date = Date()
     @State private var clickedCurrentMonthDates: Date?
+    @State var monthlyTab: Bool = true
     
     init(
         month: Date = Date(),
         clickedCurrentMonthDates: Date? = nil
     ) {
         _month = State(initialValue: month)
-        _clickedCurrentMonthDates = State(initialValue: clickedCurrentMonthDates)
+        _clickedCurrentMonthDates = State(initialValue: clickedCurrentMonthDates ?? Date())
     }
     
     var body: some View {
         VStack {
             headerView
-            calendarGridView
+            
+            if monthlyTab {
+                mothlyCalendarGridView
+            } else {
+                weeklyCalendarGridView
+            }
         }
     }
     
@@ -46,7 +52,10 @@ struct CalenderView: View {
     private var yearMonthView: some View {
         HStack(spacing: 8) {
             AlmaengiText(Self.calendarHeaderDateFormatter.string(from: month), textStyle: .h2Bold, color: .g9)
-            WeeklyMonthlyButton()
+            WeeklyMonthlyButton(monthlyTab: $monthlyTab)
+                .onTapGesture {
+                    monthlyTab.toggle()
+                }
             Spacer()
             HStack(spacing: 12) {
                 Button {
@@ -66,7 +75,7 @@ struct CalenderView: View {
     }
     
     // MARK: - Grid Calendar
-    private var calendarGridView: some View {
+    private var mothlyCalendarGridView: some View {
         let daysInMonth: Int = numberOfDays(in: month)
         let firstWeekday: Int = firstWeekdayOfMonth(in: month) - 1
         let lastDayOfMonthBefore = numberOfDays(in: previousMonth())
@@ -102,6 +111,27 @@ struct CalenderView: View {
                             let date = getDate(for: index)
                             clickedCurrentMonthDates = date
                         }
+                    }
+            }
+        }
+    }
+    
+    private var weeklyCalendarGridView: some View {
+        let daysInWeek = 7
+        let today = self.today
+            let firstWeekday = Calendar.current.component(.weekday, from: today)
+            let startOfWeek = Calendar.current.date(byAdding: .day, value: 1 - firstWeekday, to: today)!
+            
+        return LazyVGrid(columns: Array(repeating: GridItem(), count: daysInWeek)) {
+            ForEach(0..<daysInWeek, id: \.self) { index in
+                let date = Calendar.current.date(byAdding: .day, value: index, to: startOfWeek)!
+                let day = Calendar.current.component(.day, from: date)
+                let clicked = clickedCurrentMonthDates == date
+                let isToday = date.formattedCalendarDayDate == today.formattedCalendarDayDate
+                
+                CellView(day: day, clicked: clicked)
+                    .onTapGesture {
+                        clickedCurrentMonthDates = date
                     }
             }
         }
