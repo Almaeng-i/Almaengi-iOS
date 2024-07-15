@@ -16,7 +16,6 @@ public enum AlmaengiType {
     case avocado
 }
 
-
 extension AlmaengiType {
     var almaengiType: String {
         switch self {

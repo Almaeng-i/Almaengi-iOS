@@ -84,6 +84,7 @@ public struct AlmaengiSelectView: View {
                 type = AlmaengiType.avocado.almaengiType
             }
         }
+        
         viewModel.almaengiType = type
     }
 }
