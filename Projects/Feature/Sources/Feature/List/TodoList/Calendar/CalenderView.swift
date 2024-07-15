@@ -13,17 +13,17 @@ struct CalenderView: View {
     @State private var clickedCurrentMonthDates: Date?
     
     init(
-      month: Date = Date(),
-      clickedCurrentMonthDates: Date? = nil
+        month: Date = Date(),
+        clickedCurrentMonthDates: Date? = nil
     ) {
-      _month = State(initialValue: month)
-      _clickedCurrentMonthDates = State(initialValue: clickedCurrentMonthDates)
+        _month = State(initialValue: month)
+        _clickedCurrentMonthDates = State(initialValue: clickedCurrentMonthDates)
     }
     
     var body: some View {
         VStack {
             headerView
-//            calendarGridView
+            calendarGridView
         }
     }
     
@@ -31,6 +31,8 @@ struct CalenderView: View {
     private var headerView: some View {
         VStack(spacing: 0) {
             yearMonthView
+                .padding(.top, 24)
+                .padding(.bottom, 12)
             HStack {
                 ForEach(Self.weekdaySymbols.indices, id: \.self) { index in
                     AlmaengiText(Self.weekdaySymbols[index], textStyle: .bodyMedium, color: .g5)
@@ -64,42 +66,46 @@ struct CalenderView: View {
     }
     
     // MARK: - Grid Calendar
-//    private var calendarGridView: some View {
-//        let daysInMonth: Int = numberOfDays(in: month)
-//        let firstWeekday: Int = firstWeekdayOfMonth(in: month) - 1
-//        let lastDayOfMonthBefore = numberOfDays(in: previousMonth())
-//        let numberOfRows = Int(ceil(Double(daysInMonth + firstWeekday) / 7.0))
-//        let visibleDaysOfNextMonth = numberOfRows * 7 - (daysInMonth + firstWeekday)
-//        
-//        return LazyVGrid(columns: Array(repeating: GridItem(), count: 7), content: {
-//            ForEach(-firstWeekday ..< daysInMonth + visibleDaysOfNextMonth, id: \.self) { index in
-//                Group {
-//                    if index > -1 && (daysInMonth != 0) {
-//                        let date = getDate(for: index)
-//                        let day = Calendar.current.component(.day, from: date)
-//                        let clicked = clickedCurrentMonthDates == date
-//                        let isToday = date.formattedCalendarDayDate == today.formattedCalendarDayDate
-//                        
-//                        CellView(day: day, clicked: clicked, isToday: isToday)
-//                    } else if let prevMonthDate = Calendar.current.date (
-//                        byAdding: .day,
-//                        value: index + lastDayOfMonthBefore,
-//                        to: previousMonth()
-//                    ) {
-//                        let day = Calendar.current.component(.day, from: prevMonthDate)
-//                        
-//                        CellView(day: day, isCurrentMonthDay: false)
-//                    }
-//                }
-//                .onTapGesture {
-//                    if 0 <= index && index < daysInMonth {
-//                        let date = getDate(for: index)
-//                        clickedCurrentMonthDates = date
-//                    }
-//                }
-//            }
-//        })
-//    }
+    private var calendarGridView: some View {
+        let daysInMonth: Int = numberOfDays(in: month)
+        let firstWeekday: Int = firstWeekdayOfMonth(in: month) - 1
+        let lastDayOfMonthBefore = numberOfDays(in: previousMonth())
+        let numberOfRows = Int(ceil(Double(daysInMonth + firstWeekday) / 7.0))
+        let visibleDaysOfNextMonth = numberOfRows * 7 - (daysInMonth + firstWeekday)
+        
+        func cellView(for index: Int, daysInMonth: Int, clickedCurrentMonthDates: Date?, today: Date, previousMonth: () -> Date, lastDayOfMonthBefore: Int) -> some View {
+            Group {
+                if index > -1 && index < daysInMonth {
+                    let date = getDate(for: index)
+                    let day = Calendar.current.component(.day, from: date)
+                    let clicked = clickedCurrentMonthDates == date
+                    let isToday = date.formattedCalendarDayDate == today.formattedCalendarDayDate
+                    
+                    CellView(day: day, clicked: clicked, isToday: isToday)
+                } else if let prevMonthDate = Calendar.current.date(
+                    byAdding: .day,
+                    value: index + lastDayOfMonthBefore,
+                    to: previousMonth()
+                ) {
+                    let day = Calendar.current.component(.day, from: prevMonthDate)
+                    
+                    CellView(day: day, isCurrentMonthDay: false)
+                }
+            }
+        }
+
+        return LazyVGrid(columns: Array(repeating: GridItem(), count: 7)) {
+            ForEach(-firstWeekday ..< daysInMonth + Int(visibleDaysOfNextMonth), id: \.self) { index in
+                cellView(for: index, daysInMonth: daysInMonth, clickedCurrentMonthDates: clickedCurrentMonthDates, today: today, previousMonth: previousMonth, lastDayOfMonthBefore: lastDayOfMonthBefore)
+                    .onTapGesture {
+                        if 0 <= index && index < daysInMonth {
+                            let date = getDate(for: index)
+                            clickedCurrentMonthDates = date
+                        }
+                    }
+            }
+        }
+    }
 }
 
 // MARK: - Day Cell
@@ -144,19 +150,30 @@ private struct CellView: View {
 
 // MARK: - Calender Properties
 private extension CalenderView {
-  var today: Date {
-    let now = Date()
-    let components = Calendar.current.dateComponents([.year, .month, .day], from: now)
-    return Calendar.current.date(from: components)!
-  }
-  
-  static let calendarHeaderDateFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateFormat = "YYYY.MM"
-    return formatter
-  }()
-  
-  static let weekdaySymbols: [String] = ["일", "월", "화", "수", "목", "금", "토"]
+    var today: Date {
+        let now = Date()
+        let components = Calendar.current.dateComponents([.year, .month, .day], from: now)
+        return Calendar.current.date(from: components)!
+    }
+    
+    static let calendarHeaderDateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "YYYY.MM"
+        return formatter
+    }()
+    
+    static let weekdaySymbols: [String] = Calendar.current.shortWeekdaySymbols.map {
+        switch $0 {
+        case "Sun": return "일"
+        case "Mon": return "월"
+        case "Tue": return "화"
+        case "Wed": return "수"
+        case "Thu": return "목"
+        case "Fri": return "금"
+        case "Sat": return "토"
+        default: return ""
+        }
+    }
 }
 
 // MARK: - Calender Method
