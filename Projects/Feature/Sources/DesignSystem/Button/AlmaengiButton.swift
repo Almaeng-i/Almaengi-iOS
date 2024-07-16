@@ -21,9 +21,11 @@ struct AlmaengiButton: View {
                 .foregroundColor(.p2)
                 .frame(maxWidth: .infinity)
                 .frame(maxHeight: 54)
-            AlmaengiText(title, textStyle: .h3Bold, color: .white)
-                .padding(.vertical, 15)
-                .padding(.horizontal, 127)
+            HStack {
+                Spacer()
+                AlmaengiText(title, textStyle: .h3Bold, color: .white)
+                Spacer()
+            }
         }
     }
 }

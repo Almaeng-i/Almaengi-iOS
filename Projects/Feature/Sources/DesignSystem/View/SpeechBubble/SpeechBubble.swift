@@ -13,9 +13,7 @@ struct SpeechBubble: View {
             Image(asset: FeatureAsset.Images.Etc.speechBubble)
             VStack(spacing: 0) {
                 AlmaengiText("오늘의 투두 확인하기", textStyle: .descriptionBold, color: .p4)
-                Button {
-                    // Action
-                } label: {
+                AlmaengiNavLink(destination: ListView()) {
                     Text("TODO")
                         .font(.custom("Pretendard-Bold", size: 10))
                         .foregroundColor(.p2)

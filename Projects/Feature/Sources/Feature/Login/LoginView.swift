@@ -45,7 +45,7 @@ public struct LoginView: View {
                 if isFirstLaunch {
                     AlmaengiSelectView()
                 } else {
-                    AlmaengiTabBar()
+                    AlmaengiSelectView()
                 }
             })
         }
