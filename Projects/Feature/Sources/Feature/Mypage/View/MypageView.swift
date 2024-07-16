@@ -63,7 +63,9 @@ public struct MypageView: View {
                 AlmaengiNavLink(destination: AlarmSeetingView()) {
                     SectionCell(icon: icon[5], title: title[5])
                 }
-                SectionCell(icon: icon[6], title: title[6])
+                AlmaengiNavLink(destination: ProfileView()) {
+                    SectionCell(icon: icon[6], title: title[6])
+                }
             }
             .padding(.vertical, 24)
             Spacer()
