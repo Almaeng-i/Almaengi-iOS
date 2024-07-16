@@ -8,6 +8,9 @@
 import SwiftUI
 
 public struct MypageView: View {
+    
+    @State private var isPresented: Bool = false
+    
     private let sectionTitle: [String] = ["알맹이 설정", "개인정보 설정"]
     private let title: [String] = ["수집한 알맹이", "아이템 보관함", "알맹이 튜토리얼", "로그아웃", "회원탈퇴", "알람 설정", "프로필 설정"]
     private let icon = [
@@ -19,6 +22,8 @@ public struct MypageView: View {
         Image(asset: FeatureAsset.Images.Icon.bell),
         Image(asset: FeatureAsset.Images.Icon.setting),
     ]
+    
+    
     
     public init() { }
     
@@ -50,13 +55,34 @@ public struct MypageView: View {
             .padding(.vertical, 16)
             SectionHeader(title: sectionTitle[1])
             VStack(spacing: 20) {
-                ForEach(3..<7) { index in
-                    SectionCell(icon: icon[index], title: title[index])
+                SectionCell(icon: icon[3], title: title[3])
+                SectionCell(icon: icon[4], title: title[4])
+                    .onTapGesture {
+                        self.isPresented.toggle()
+                    }
+                AlmaengiNavLink(destination: AlarmSeetingView()) {
+                    SectionCell(icon: icon[5], title: title[5])
                 }
+                SectionCell(icon: icon[6], title: title[6])
             }
             .padding(.vertical, 24)
             Spacer()
         }
         .padding(.horizontal, 24)
+        .almaengiAlert(isPresented: $isPresented) {
+            AlmaengiAlert(title: "회원탈퇴",
+                          width: 301,
+                          heigth: 166,
+                          content: "정말로 구황작물을 회원탈퇴 하시겠습니까?") {
+                AlmaengiAlertButton(isPresented: $isPresented, type: .cancel) {
+                    print("취소")
+                }
+            } checkButton: {
+                AlmaengiAlertButton(isPresented: $isPresented, type: .check) {
+                    print("확인")
+                }
+            }
+            
+        }
     }
 }
