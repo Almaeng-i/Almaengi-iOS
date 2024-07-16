@@ -8,7 +8,9 @@
 import SwiftUI
 
 public struct TodoListTemplate: View {
+    
     @State var title: String
+    @State private var isPresented: Bool = false
     
     public init(title: String) {
         self._title = State(initialValue: title)
@@ -20,7 +22,7 @@ public struct TodoListTemplate: View {
                 AlmaengiText(title, textStyle: .h2Bold, color: .p4)
                 Spacer()
                 Button {
-                    print("투두리스트 추가")
+                    self.isPresented.toggle()
                 } label: {
                     Image(asset: FeatureAsset.Images.Icon.plus)
                 }
@@ -31,5 +33,20 @@ public struct TodoListTemplate: View {
             }
         }
         .padding(.vertical, 12)
+        .almaengiAlert(isPresented: $isPresented) {
+            AlmaengiAlert(title: "투두 입력",
+                          width: 317,
+                          heigth: 190,
+                          content: "입력 창") {
+                AlmaengiAlertButton(isPresented: $isPresented, type: .cancel) {
+                    print("취소")
+                }
+            } checkButton: {
+                AlmaengiAlertButton(isPresented: $isPresented, type: .check) {
+                    print("확인")
+                }
+            }
+
+        }
     }
 }

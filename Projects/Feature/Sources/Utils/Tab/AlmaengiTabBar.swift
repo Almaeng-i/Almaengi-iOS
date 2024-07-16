@@ -52,7 +52,6 @@ public struct AlmaengiTabBar: View {
     public var body: some View {
         ZStack {
             ZStack {
-
                 switch selectedIndex {
                 case 0:
                     MainView()
