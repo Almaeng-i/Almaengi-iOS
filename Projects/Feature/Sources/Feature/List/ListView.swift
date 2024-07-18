@@ -30,5 +30,4 @@ public struct ListView: View {
             .padding(.horizontal, 24)
         }
     }
-    
 }
