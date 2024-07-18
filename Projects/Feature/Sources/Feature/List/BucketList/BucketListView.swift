@@ -16,7 +16,7 @@ public struct BucketListView: View {
             HStack {
                 AlmaengiText("2024 Bucket List ✨", textStyle: .h2Bold, color: .g9, isFixedSize: true)
                 Spacer()
-                AlmaengiNavLink(destination: CreateBucketList()) {
+                AlmaengiNavLink(destination: CreateBucketList(title: "")) {
                     Image(asset: FeatureAsset.Images.Icon.plus)
                 }
             }
