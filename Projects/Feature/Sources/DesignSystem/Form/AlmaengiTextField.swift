@@ -11,6 +11,7 @@ struct AlmaengiTextField: View {
     var placeholder: String
     var helpMessage: String
     var isError: Bool
+    var isHelpMessage: Bool
     var isEmpty: Bool { text.isEmpty }
     
     @Binding var text: String
@@ -32,12 +33,14 @@ struct AlmaengiTextField: View {
             text: Binding<String>,
             helpMessage: String = "",
             isError: Bool = false,
-            isEmpty: Bool = false
+            isEmpty: Bool = false,
+            isHelpMessage: Bool = true
     ) {
         self.placeholder = placeholder
         self._text = text
         self.helpMessage = helpMessage
         self.isError = isError
+        self.isHelpMessage = isHelpMessage
     }
     
     var body: some View {
@@ -46,6 +49,7 @@ struct AlmaengiTextField: View {
                 .cornerRadius(8)
                 .padding(.vertical, 15)
                 .padding(.horizontal, 16)
+                .frame(height: 52)
                 .overlay(
                     RoundedRectangle(cornerRadius: 8)
                         .inset(by: 0.5)
@@ -54,7 +58,9 @@ struct AlmaengiTextField: View {
                 .focused($isFocused)
                 .foregroundColor(.g9)
                 .disabled(!isEnabled)
-            AlmaengiText(helpMessage, textStyle: .descriptionMedium, color: isError ? .systemRed : .clear, isFixedSize: true)
+            if isHelpMessage {
+                AlmaengiText(helpMessage, textStyle: .descriptionMedium, color: isError ? .systemRed : .clear, isFixedSize: true)
+            }
         }
     }
 }
